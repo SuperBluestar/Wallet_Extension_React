@@ -1,13 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-import Logo from '../../styled-components/Logo';
-import Title from '../../styled-components/Title';
-import FullInput from '../../styled-components/FullInput';
-import TextUnderline from '../../styled-components/TextUnderline';
-import GreenButton from '../../styled-components/GreenButton';
-import Center from '../../styled-components/Center';
+import ButtonGreen from '../../styled-components/ButtonGreen';
 import Spinner from '../../styled-components/Spinner';
+
+import { Logo, Title, FullInput, Center, TextUnderline } from "./Common";
 
 const Verify = () => {
     const [loading, setLoading] = useState(false);
@@ -20,7 +17,7 @@ const Verify = () => {
                 <FullInput placeholder="Password or other" />
                 <Title>Or</Title>
                 <Center>
-                    <GreenButton>Verify with app</GreenButton>
+                    <ButtonGreen>Verify with app</ButtonGreen>
                 </Center>
                 <Center>
                     <Link to="/verify">

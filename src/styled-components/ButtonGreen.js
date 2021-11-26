@@ -1,12 +1,10 @@
 import styled from 'styled-components';
+import Button from "./Button";
 
 import { green } from '../constants/colors';
 
-const GreenButton = styled.button`
+const GreenButton = styled(Button)`
     background-color: ${green};
-    border-radius: 1000px;
-    padding: 12px 16px;
-    border: none;
 `;
 
 export default GreenButton;

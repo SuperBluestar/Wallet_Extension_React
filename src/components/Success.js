@@ -1,4 +1,3 @@
-import ConfirmIcon from '../styled-components/ConfirmIcon';
 import SuccessImg from '../assets/success.png';
 
 export default () => (

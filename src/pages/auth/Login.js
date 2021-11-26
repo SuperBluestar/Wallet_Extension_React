@@ -1,18 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import Logo from '../../styled-components/Logo';
-import Title from '../../styled-components/Title';
-import FullInput from '../../styled-components/FullInput';
-import TextUnderline from '../../styled-components/TextUnderline';
-import GreenButton from '../../styled-components/GreenButton';
-import Center from '../../styled-components/Center';
+import ButtonGreen from '../../styled-components/ButtonGreen';
 import Spinner from '../../components/Spinner';
 import Success from '../../components/Success';
+import { Logo, Title, FullInput, Center, TextUnderline } from "./Common";
 
 const Login = () => {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+    let navigate = useNavigate();
     const loginHandler = () => {
         setLoading(true);
         setTimeout(() => {
@@ -20,13 +17,14 @@ const Login = () => {
             setSuccess(true);
             setTimeout(() => {
                 setSuccess(false);
+                setTimeout(() => navigate("/main"), 1000);
             }, 1000);
         }, 2000);
     }
     return (
         <>
             <Logo>Valo.id logo</Logo>
-            { loading ? <Spinner src={require('../../assets/loading.png')} alt="Loading"/> : (
+            { loading ? <Spinner/> : (
                 success ? <>
                     <Success />
                 </> :
@@ -43,7 +41,7 @@ const Login = () => {
                     </Link>
                 </Center>
                 <Center>
-                    <GreenButton onClick={loginHandler}>Sign In</GreenButton>
+                    <ButtonGreen onClick={loginHandler}>Sign In</ButtonGreen>
                 </Center>
             </>) }
         </>

@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
-import { slide as Menu } from 'react-burger-menu';
+import { Outlet, useNavigate } from "react-router-dom";
+import { slide as Menu } from "react-burger-menu";
 import TextLg from "../styled-components/TextLg";
 import TextSm from "../styled-components/TextSm";
 import ButtonGray from "../styled-components/ButtonGray";
@@ -18,6 +18,7 @@ import RequestIcon from "../components/Icons/Request";
 import { useState } from "react";
 import { white, gray, lightgray } from "../constants/colors";
 import { topbarHeight, paddingSm, paddingMd, marginLg, marginSm } from "../constants/dimentions";
+import { zIndex01, zIndex02, zIndex03 } from "../constants/zIndexs";
 import SignalImg from "../components/SignalImg";
 import styled from "styled-components";
 
@@ -78,7 +79,17 @@ const Item = styled.li`
     align-items: center;
 `;
 
+const SidebarOpen = styled.div`
+    width: 50px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+`;
+
 const MainLayout = () => {
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const closeMenu = () => {
         setIsOpen(false);
@@ -88,92 +99,100 @@ const MainLayout = () => {
     }
     return (
         <>
+            <Menu 
+                isOpen={isOpen}
+                customBurgerIcon={ false }
+                customCrossIcon={ false } 
+                onClose={closeMenu}
+                onOpen={openMenu}
+                styles={styles}
+                width={'287px'} 
+            >
+                <MenuTopboard>
+                    <TextLg style={{
+                        marginTop: marginLg,
+                        marginBottom: marginLg
+                    }}>VALO.id {isOpen ? "ASDF" : "FDSA"}</TextLg>
+                    <TextLg>Acconut name</TextLg>
+                    <TextSm>Total Balance</TextSm>
+                    <TextSm>Address</TextSm>
+                    <div style={{display: "flex"}}>
+                        <SidebarButton>
+                            <SendIcon></SendIcon>
+                            <TextMd>Send</TextMd>
+                        </SidebarButton>
+                        <SidebarButton>
+                            <SendIcon></SendIcon>
+                            <TextMd>Add funds</TextMd>
+                        </SidebarButton>
+                    </div>
+                </MenuTopboard>
+                <MenuContent>
+                    <List>
+                        <Item>
+                            <ExpandIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Expand View</TextMd>
+                        </Item>
+                        <Item>
+                            <ConnectIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Connected Sites</TextMd>
+                        </Item>
+                        <Item>
+                            <HistoryIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Transaction History</TextMd>
+                        </Item>
+                        <Item>
+                            <ShareIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Share my Public Address</TextMd>
+                        </Item>
+                        <Item>
+                            <ScanIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>View on Etherscan</TextMd>
+                        </Item>
+                        <Item>
+                            <FillKYCIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Fill your KYC</TextMd>
+                        </Item>
+                        <Item>
+                            <SettingsIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }} onClick={() => {
+                                closeMenu();
+                                navigate("/main/settings");
+                            }}>Settings</TextMd>
+                        </Item>
+                        <Item>
+                            <HelpIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Help</TextMd>
+                        </Item>
+                        <Item>
+                            <RequestIcon />
+                            <TextMd style={{
+                                marginLeft: 10
+                            }}>Request a feature</TextMd>
+                        </Item>
+                    </List>
+                </MenuContent>
+            </Menu>
             <Topbar>
-                <Menu 
-                    isOpen={isOpen}
-                    customBurgerIcon={ <SidemenuOpenIcon onClick={openMenu}/> }
-                    customCrossIcon={ false } 
-                    styles={styles}
-                    width={'287px'} 
-                >
-                    <MenuTopboard>
-                        <TextLg style={{
-                            marginTop: marginLg,
-                            marginBottom: marginLg
-                        }}>VALO.id</TextLg>
-                        <TextLg>Acconut name</TextLg>
-                        <TextSm>Total Balance</TextSm>
-                        <TextSm>Address</TextSm>
-                        <div style={{display: "flex"}}>
-                            <SidebarButton>
-                                <SendIcon></SendIcon>
-                                <TextMd>Send</TextMd>
-                            </SidebarButton>
-                            <SidebarButton>
-                                <SendIcon></SendIcon>
-                                <TextMd>Add funds</TextMd>
-                            </SidebarButton>
-                        </div>
-                    </MenuTopboard>
-                    <MenuContent>
-                        <List>
-                            <Item>
-                                <ExpandIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Expand View</TextMd>
-                            </Item>
-                            <Item>
-                                <ConnectIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Connected Sites</TextMd>
-                            </Item>
-                            <Item>
-                                <HistoryIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Transaction History</TextMd>
-                            </Item>
-                            <Item>
-                                <ShareIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Share my Public Address</TextMd>
-                            </Item>
-                            <Item>
-                                <ScanIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>View on Etherscan</TextMd>
-                            </Item>
-                            <Item>
-                                <FillKYCIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Fill your KYC</TextMd>
-                            </Item>
-                            <Item>
-                                <SettingsIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Settings</TextMd>
-                            </Item>
-                            <Item>
-                                <HelpIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Help</TextMd>
-                            </Item>
-                            <Item>
-                                <RequestIcon />
-                                <TextMd style={{
-                                    marginLeft: 10
-                                }}>Request a feature</TextMd>
-                            </Item>
-                        </List>
-                    </MenuContent>
-                </Menu>
+                <SidebarOpen onClick={openMenu}>
+                    <SidemenuOpenIcon/>
+                </SidebarOpen>
                 <div style={{
                     padding: paddingSm
                 }}>

@@ -11,7 +11,8 @@ export const marginSm = 12;
 export const marginMd = 16;
 export const marginLg = 22;
 
-export const inputHeightSm = 43;
+export const inputHeightSm = 30;
+export const inputHeightMd = 43;
 
 export const borderRadiusSm = 10;
 
@@ -39,3 +40,12 @@ export const votingItemHeight = 84;
 
 export const coverImgHeight = 130;
 
+export const switchWidth = 39;
+export const switchHeight = 16;
+
+export const selectHeight = 40;
+
+export const metamaskInfoVideoWidth = 150;
+export const metamaskInfoVideoHeight = 80;
+
+export const contactItemHeight = 40;

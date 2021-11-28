@@ -19,6 +19,17 @@ import SettingsContacts from './pages/settings/Contacts';
 import SettingsAddContact from './pages/settings/AddContact';
 import SettingsNetworks from './pages/settings/Networks';
 import SettingsAddNetwork from './pages/settings/AddNetwork';
+import AddFunds from "./pages/AddFunds";
+import AddFundsIndex from "./pages/add-funds/Index";
+import AddFundsCreditDetail from "./pages/add-funds/CreditDetail";
+import Receive from './pages/Receive';
+import ReceiveIndex from './pages/receive/Index';
+import ReceiveDetail from './pages/receive/Detail';
+import ReceiveQR_Code from './pages/receive/QR_Code';
+import Send from './pages/Send';
+import SendIndex from './pages/send/Index';
+import SendDetail from './pages/send/Detail';
+import SendConfirm from './pages/send/Confirm';
 import Vote from './pages/Vote';
 import VoteSuccess from './pages/VoteSuccess';
 import Login from './pages/auth/Login';
@@ -56,6 +67,20 @@ function AppEX() {
               <Route path="add-contact" element={<SettingsAddContact />}></Route>
               <Route path="networks" element={<SettingsNetworks />}></Route>
               <Route path="add-network" element={<SettingsAddNetwork />}></Route>
+            </Route>
+            <Route path="add-funds" element={<AddFunds />}>
+              <Route path="" element={<AddFundsIndex />}></Route>
+              <Route path="credit-detail" element={<AddFundsCreditDetail />}></Route>
+            </Route>
+            <Route path="receive" element={<Receive />}>
+              <Route path="" element={<ReceiveIndex />} ></Route>
+              <Route path="detail/:method" element={<ReceiveDetail />} ></Route>
+              <Route path="qr-code" element={<ReceiveQR_Code />} ></Route>
+            </Route>
+            <Route path="send" element={<Send />}>
+              <Route path="" element={<SendIndex />} ></Route>
+              <Route path="detail" element={<SendDetail />} ></Route>
+              <Route path="confirm" element={<SendConfirm />} ></Route>
             </Route>
           </Route>
         </Routes>

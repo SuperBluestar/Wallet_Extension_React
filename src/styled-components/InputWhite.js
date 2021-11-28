@@ -7,7 +7,6 @@ const InputWhite = styled.input`
     border-radius: 1000px;
     margin: auto;
     height: ${inputHeightSm}px;
-    border: none;
 `;
 
 export default InputWhite;

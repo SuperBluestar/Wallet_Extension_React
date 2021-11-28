@@ -3,8 +3,8 @@ import Button from "./Button";
 
 import { green } from '../constants/colors';
 
-const GreenButton = styled(Button)`
+const ButtonGreen = styled(Button)`
     background-color: ${green};
 `;
 
-export default GreenButton;
+export default ButtonGreen;

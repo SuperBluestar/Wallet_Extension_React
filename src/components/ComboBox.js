@@ -66,11 +66,11 @@ const defaultList = [{
     text: "AAA2"
 },];
 
-const ComboBox = ({list = defaultList, onChange = () => {}, selected = 0}) => {
+const ComboBox = ({list = defaultList, onChange = () => {}, selected = 0, ...props}) => {
     const [open, setOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(selected);
     return (
-        <SelectedGroup className={`${open ? "open" : ""}`} onClick={() => setOpen(oldVal => !oldVal)}>
+        <SelectedGroup className={`${open ? "open" : ""}`} onClick={() => setOpen(oldVal => !oldVal)} {...props}>
             <Selected>
                 <TextMd>{list[selectedItem].text}</TextMd>
                 <Down />

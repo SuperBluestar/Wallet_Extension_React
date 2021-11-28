@@ -1,7 +1,4 @@
-import TextLg from "../../styled-components/TextLg";
-import TextSm from "../../styled-components/TextSm";
-import styled from "styled-components";
-import { borderRadiusSm, paddingMd, paddingSm, marginMd, topbarHeight, paddingLg, marginSm } from '../../constants/dimentions';
+import { marginMd, topbarHeight, paddingLg, marginSm } from '../../constants/dimentions';
 import { black, blue, lightgray } from '../../constants/colors';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import RadioButton from '../../components/RadioButton';

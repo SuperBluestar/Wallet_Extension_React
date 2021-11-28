@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
 import TextLg from "../styled-components/TextLg";
 import TextSm from "../styled-components/TextSm";
@@ -65,6 +65,7 @@ const SidebarButton = styled(ButtonGray)`
     cursor: pointer;
     display: flex;
     justify-content: center;
+    min-width: 0px;
 `;
 
 const List = styled.ul`
@@ -90,12 +91,22 @@ const SidebarOpen = styled.div`
 
 const MainLayout = () => {
     const navigate = useNavigate();
+    const { pathname } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const closeMenu = () => {
         setIsOpen(false);
     }
     const openMenu = () => {
         setIsOpen(true);
+    }
+    const navigateClose = (_to) => {
+        console.log(pathname)
+        console.log(_to)
+        console.log(pathname !== _to)
+        if (pathname !== _to) {
+            navigate(_to);
+        }
+        closeMenu();
     }
     return (
         <>
@@ -112,7 +123,9 @@ const MainLayout = () => {
                     <TextLg style={{
                         marginTop: marginLg,
                         marginBottom: marginLg
-                    }}>VALO.id {isOpen ? "ASDF" : "FDSA"}</TextLg>
+                    }} onClick={() => {
+                        navigateClose("/main")
+                    }}>VALO.id</TextLg>
                     <TextLg>Acconut name</TextLg>
                     <TextSm>Total Balance</TextSm>
                     <TextSm>Address</TextSm>
@@ -121,7 +134,9 @@ const MainLayout = () => {
                             <SendIcon></SendIcon>
                             <TextMd>Send</TextMd>
                         </SidebarButton>
-                        <SidebarButton>
+                        <SidebarButton onClick={() => {
+                            navigateClose('/main/add-funds');
+                        }}>
                             <SendIcon></SendIcon>
                             <TextMd>Add funds</TextMd>
                         </SidebarButton>
@@ -170,8 +185,7 @@ const MainLayout = () => {
                             <TextMd style={{
                                 marginLeft: 10
                             }} onClick={() => {
-                                closeMenu();
-                                navigate("/main/settings");
+                                navigateClose("/main/settings");
                             }}>Settings</TextMd>
                         </Item>
                         <Item>

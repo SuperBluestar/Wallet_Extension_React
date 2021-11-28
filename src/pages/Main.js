@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { white, gray } from '../constants/colors';
 import { circleBtnSize, tabItemWidth, tabItemBorderRadius, paddingLg, marginSm, tabItemHeight, footerHeight, tokenItemHeight, votingItemHeight, borderRadiusSm, marginMd } from '../constants/dimentions';
@@ -7,6 +7,7 @@ import HighLight from "../styled-components/HighLight";
 import TextSm from "../styled-components/TextSm";
 import ButtonGray from "../styled-components/ButtonGray";
 import ReceiveIcon from "../components/Icons/Receive";
+import SendIcon from "../components/Icons/Send";
 import NFTFolder from "../components/NFTFolder";
 import IssuerFolder from "../components/IssuerFolder";
 import TextMd from '../styled-components/TextMd';
@@ -139,6 +140,7 @@ const SiteItem = styled.div`
 `;
 
 const Main = () => {
+    const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState(0);
     const tabs = [{
         tabText: "Assets", 
@@ -250,15 +252,17 @@ const Main = () => {
                 <Address>Address</Address>
                 <TotalBalance>Total Balance</TotalBalance>
                 <BoardButtonGroup>
-                    <BoradButton>
+                    <BoradButton onClick={() => navigate("/main/receive")}>
                         <HighLight>
                             <ReceiveIcon />
                         </HighLight>
                         Receive
                     </BoradButton>
-                    <BoradButton>
-                        <HighLight>A</HighLight>
-                        Receive
+                    <BoradButton onClick={() => navigate("/main/send")}>
+                        <HighLight>
+                            <SendIcon />
+                        </HighLight>
+                        Send
                     </BoradButton>
                     <BoradButton>
                         <HighLight>A</HighLight>

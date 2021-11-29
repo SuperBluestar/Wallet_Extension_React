@@ -3,9 +3,9 @@ import TextMd from "../../styled-components/TextMd";
 import ButtonGreen from "../../styled-components/ButtonGreen";
 import { marginLg, marginSm } from "../../constants/dimentions";
 import { useNavigate } from "react-router-dom";
+import AmountInput from "../../components/AmountInput";
 
 import { InputBox } from './Index';
-import { AmountInput } from './Detail';
 
 const Confirm = () => {
     const navigate = useNavigate();

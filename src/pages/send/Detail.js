@@ -6,15 +6,7 @@ import styled from "styled-components";
 import InputWhite from "../../styled-components/InputWhite";
 import ButtonGreen from "../../styled-components/ButtonGreen";
 import { useParams, useNavigate } from "react-router-dom";
-
-export const AmountInput = styled(InputWhite)`
-    height: ${inputHeightLg}px;
-    text-align: center;
-    margin: ${marginLg}px 0;
-    box-shadow: 0 0px 10px grey;
-    border: none;
-    outline: none;
-`;
+import AmountInput from "../../components/AmountInput";
 
 const Detail = () => {
     const navigate = useNavigate();

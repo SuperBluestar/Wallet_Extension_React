@@ -30,6 +30,8 @@ import Send from './pages/Send';
 import SendIndex from './pages/send/Index';
 import SendDetail from './pages/send/Detail';
 import SendConfirm from './pages/send/Confirm';
+import Swap from './pages/Swap';
+import SwapIndex from './pages/swap/Index';
 import Vote from './pages/Vote';
 import VoteSuccess from './pages/VoteSuccess';
 import Login from './pages/auth/Login';
@@ -81,6 +83,9 @@ function AppEX() {
               <Route path="" element={<SendIndex />} ></Route>
               <Route path="detail" element={<SendDetail />} ></Route>
               <Route path="confirm" element={<SendConfirm />} ></Route>
+            </Route>
+            <Route path="swap" element={<Swap />}>
+              <Route path="" element={<SwapIndex />}></Route>
             </Route>
           </Route>
         </Routes>

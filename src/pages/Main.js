@@ -14,6 +14,7 @@ import TextMd from '../styled-components/TextMd';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import RightIcon from '../components/Icons/Right';
 import TrashIcon from '../components/Icons/Trash';
+import SwapIcon from '../components/Icons/Swap';
 
 const MainBoard = styled.div`
     height: calc(100% - 50px);
@@ -264,9 +265,11 @@ const Main = () => {
                         </HighLight>
                         Send
                     </BoradButton>
-                    <BoradButton>
-                        <HighLight>A</HighLight>
-                        Receive
+                    <BoradButton onClick={() => navigate("/main/swap")}>
+                        <HighLight>
+                            <SwapIcon />
+                        </HighLight>
+                        Swap
                     </BoradButton>
                 </BoardButtonGroup>
             </Board>

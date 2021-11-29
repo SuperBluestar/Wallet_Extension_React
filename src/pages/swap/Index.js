@@ -10,6 +10,7 @@ import ReactModal from 'react-modal';
 import Success from '../../components/Success';
 import Spinner from '../../components/Spinner';
 import TextSm from '../../styled-components/TextSm';
+import { useNavigate } from 'react-router';
 
 const AmountWarning = styled.div`
     color: ${red};
@@ -27,12 +28,16 @@ const AmountWrapper = styled.div`
 `
 
 const Index = () => {
+    const navigate = useNavigate();
     const [amountSwap, setAmountSwap] = useState(0);
     const [loadingStep, setLoadingStep] = useState(0);
     const getQuateHandler = () => {
         setLoadingStep(1);
         setTimeout(() => {
             setLoadingStep(2);
+            setTimeout(() => {
+                navigate("/main/swap/confirm");
+            }, 1000)
         }, 2000);
     }
     return (<>

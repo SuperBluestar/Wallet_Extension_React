@@ -1,9 +1,9 @@
 import { Outlet } from "react-router";
 import styled from "styled-components";
-import { topbarHeight, paddingSm, paddingLg } from "../constants/dimentions";
+import { topbarHeight, paddingMd, paddingLg } from "../constants/dimentions";
 
 const SwapLayout = styled.div`
-    padding: ${paddingLg}px ${paddingSm}px;
+    padding: ${paddingLg}px ${paddingLg}px;
     display: flex;
     flex-direction: column;
     align-items: center;

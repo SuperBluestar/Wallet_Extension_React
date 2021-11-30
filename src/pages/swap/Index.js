@@ -10,6 +10,7 @@ import ReactModal from 'react-modal';
 import Success from '../../components/Success';
 import Spinner from '../../components/Spinner';
 import TextSm from '../../styled-components/TextSm';
+import XButton from '../../styled-components/XButton';
 import { useNavigate } from 'react-router';
 
 const AmountWarning = styled.div`
@@ -120,15 +121,7 @@ const Index = () => {
         >
             <Success />
             <TextSm>Transaction completed.</TextSm>
-            <button style={{
-                position: 'absolute',
-                right: `${marginMd}px`,
-                top: `${marginMd}px`,
-                background: 'transparent',
-                border: "none",
-                outline: "none",
-                cursor: "pointer",
-            }} onClick={() => setLoadingStep(0)}>X</button>
+            <XButton onClick={() => setLoadingStep(0)}>X</XButton>
         </ReactModal>
     </>)
 }

@@ -288,7 +288,10 @@ const MainLayout = () => {
                     </SingleNetwork>
                 ))}
                 
-                <SingleNetwork>
+                <SingleNetwork onClick={() => {
+                    setNetworkModal(false)
+                    navigate("/main/settings/add-network")
+                }}>
                     <AddIcon style={{
                         marginRight: `${marginSm}px`
                     }}></AddIcon>

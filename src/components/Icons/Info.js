@@ -1,4 +1,4 @@
-import SwapDown from '../../assets/swap-down.png';
+import Info from '../../assets/info.png';
 import { iconWidth } from "../../constants/dimentions";
 
 export default ({style, ...props}) => (
@@ -6,5 +6,5 @@ export default ({style, ...props}) => (
         width: iconWidth,
         height: iconWidth,
         ...style
-    }} src={SwapDown} alt="SwapDown" {...props}/>
+    }} src={Info} alt="Info" {...props}/>
 )

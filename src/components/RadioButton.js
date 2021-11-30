@@ -2,11 +2,12 @@ import { iconWidth, marginSm } from "../constants/dimentions"
 import { black, green } from "../constants/colors";
 import TextMd from "../styled-components/TextMd";
 
-const RadioButton = ({ text = "", active = false, ...props}) => {
+const RadioButton = ({ text = "", active = false, style, ...props}) => {
     return (<div style={{
         display: "flex",
         alignItems: "center",
         cursor: "pointer",
+        ...style,
     }} {...props}>
         <div style={{
             width: `${iconWidth}px`,

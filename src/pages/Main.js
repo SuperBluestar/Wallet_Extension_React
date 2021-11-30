@@ -167,7 +167,7 @@ const Main = () => {
             </Footer>
         </TabPanel>
     },{
-        tabText: "Voting", 
+        tabText: "Tokens", 
         tabContent: <TabPanel>
             <ScrollContainer style={{height: "200px"}} vertical={true} horizontal={false} hideScrollbars={false}>
                 {[0,0,0,0,0,0,0,0,0].map((issuer, id) => {
@@ -199,7 +199,7 @@ const Main = () => {
             </Footer>
         </TabPanel>
     },{
-        tabText: "Tokens", 
+        tabText: "Voting", 
         tabContent: <TabPanel>
             <ScrollContainer style={{height: "260px"}} className="scroll-container" vertical={true} horizontal={false} hideScrollbars={false}>
                 {[0,0,0,0,0,0,0,0].map((vote, id) => {

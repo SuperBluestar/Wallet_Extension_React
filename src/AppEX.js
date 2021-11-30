@@ -41,6 +41,7 @@ import MainLayout from './layouts/MainLayout';
 
 import styled from "styled-components";
 import { appWidth, appHeight } from "./constants/dimentions";
+import TransactionHistory from "./pages/TransactionHistory";
 const App = styled.div`
   width: ${appWidth}px;
   height: ${appHeight}px;
@@ -52,12 +53,12 @@ function AppEX() {
       <Router>
         <Routes >
           {/* <Route path="/" element={<div>Hello</div>}></Route> */}
-          <Route path="/" element={<Auth />}>
+          <Route path="" element={<Auth />}>
             <Route path="" element={<Login />}></Route>
             <Route path="verify" element={<Verify />}></Route>
           </Route>
-          <Route path="/doc" element={<Doc />}></Route>
-          <Route path="/main" element={<MainLayout />}>
+          <Route path="doc" element={<Doc />}></Route>
+          <Route path="main" element={<MainLayout />}>
             <Route path="" element={<Main />}></Route>
             <Route path="vote/:id" element={<Vote />}></Route>
             <Route path="vote-success" element={<VoteSuccess />}></Route>
@@ -89,6 +90,7 @@ function AppEX() {
               <Route path="" element={<SwapIndex />}></Route>
               <Route path="confirm" element={<SwapConfirm />}></Route>
             </Route>
+            <Route path="transaction-history" element={<TransactionHistory />} ></Route>
           </Route>
         </Routes>
       </Router>

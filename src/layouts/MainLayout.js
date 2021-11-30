@@ -15,12 +15,14 @@ import FillKYCIcon from "../components/Icons/FillKYC";
 import SettingsIcon from "../components/Icons/Settings";
 import HelpIcon from "../components/Icons/Help";
 import RequestIcon from "../components/Icons/Request";
+import AddIcon from "../components/Icons/Add";
 import { useState } from "react";
 import { white, gray, lightgray } from "../constants/colors";
 import { topbarHeight, paddingSm, paddingMd, marginLg, marginSm } from "../constants/dimentions";
 import { zIndex01, zIndex02, zIndex03 } from "../constants/zIndexs";
 import SignalImg from "../components/SignalImg";
 import styled from "styled-components";
+import ReactModal from 'react-modal';
 
 const styles = {
     bmBurgerButton: {
@@ -55,7 +57,7 @@ const MenuTopboard = styled.div`
 `;
 const MenuContent = styled.div`
     background-color: ${lightgray};
-    padding: ${paddingMd}px;
+    padding: ${paddingMd}px 0;
     height: 100%;
 `;
 
@@ -78,6 +80,15 @@ const Item = styled.li`
     margin-bottom: ${marginSm}px;
     display: flex;
     align-items: center;
+    padding-left: ${paddingMd}px;
+    cursor: pointer;
+    &.active {
+        background: lightgray;
+        padding: ${paddingMd}px ${paddingMd}px;
+        border-top-right-radius: 1000px;
+        border-bottom-right-radius: 1000px;
+        margin-right: ${marginLg}px;
+    }
 `;
 
 const SidebarOpen = styled.div`
@@ -86,6 +97,12 @@ const SidebarOpen = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+`;
+
+const SingleNetwork = styled.div`
+    display: flex;
+    margin: ${marginSm}px;
     cursor: pointer;
 `;
 
@@ -100,14 +117,34 @@ const MainLayout = () => {
         setIsOpen(true);
     }
     const navigateClose = (_to) => {
-        console.log(pathname)
-        console.log(_to)
-        console.log(pathname !== _to)
         if (pathname !== _to) {
             navigate(_to);
         }
         closeMenu();
     }
+    const [networkModal, setNetworkModal] = useState(false);
+    const [networks] = useState([{
+        chainId: 0,
+        name: "Ethereum Main Network"
+    },{
+        chainId: 0,
+        name: "Ropsten test network"
+    },{
+        chainId: 0,
+        name: "Kovan test network"
+    },{
+        chainId: 0,
+        name: "Rinkeby test network"
+    },{
+        chainId: 0,
+        name: "Goerli test network"
+    },{
+        chainId: 0,
+        name: "Binance Smart Chain Mainnet"
+    },{
+        chainId: 0,
+        name: "Matic Mainnet"
+    },])
     return (
         <>
             <Menu 
@@ -156,7 +193,7 @@ const MainLayout = () => {
                                 marginLeft: 10
                             }}>Connected Sites</TextMd>
                         </Item>
-                        <Item>
+                        <Item className="active" onClick={() => navigateClose("/main/transaction-history")}>
                             <HistoryIcon />
                             <TextMd style={{
                                 marginLeft: 10
@@ -211,13 +248,53 @@ const MainLayout = () => {
                     padding: paddingSm
                 }}>
                     <TextLg style={{textAlign: "right"}}>Account Name</TextLg>
-                    <div style={{display: "flex"}}>
-                        <SignalImg signal={true}></SignalImg>
+                    <div style={{display: "flex", cursor: "pointer"}} onClick={() => setNetworkModal(true)}>
+                        <SignalImg style={{
+                            marginRight: `${marginSm}px`
+                        }} signal={true}></SignalImg>
                         <TextSm>Current network (Ethereum mainnet etc)</TextSm>
                     </div>
                 </div>
             </Topbar>
             <Outlet />
+            <ReactModal 
+                isOpen={networkModal}
+                contentLabel="Minimal Modal Example"
+                onRequestClose={() => setNetworkModal(false)}
+                style={{
+                    overlay: {
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: `${zIndex03}`,
+                    },
+                    content: {
+                        position: 'relative',
+                        width: "calc(100% - 120px)",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                        height: "fit-content",
+                        inset: 0,
+                    }
+                }}
+            >
+                {networks.map((network, id) => (
+                    <SingleNetwork key={id}>
+                        <SignalImg style={{
+                            marginRight: `${marginSm}px`
+                        }} signal={false}></SignalImg>
+                        <TextMd>{network.name}</TextMd>
+                    </SingleNetwork>
+                ))}
+                
+                <SingleNetwork>
+                    <AddIcon style={{
+                        marginRight: `${marginSm}px`
+                    }}></AddIcon>
+                    <TextMd>Add network</TextMd>
+                </SingleNetwork>
+            </ReactModal>
         </>
     )
 }

@@ -42,6 +42,7 @@ import MainLayout from './layouts/MainLayout';
 import styled from "styled-components";
 import { appWidth, appHeight } from "./constants/dimentions";
 import TransactionHistory from "./pages/TransactionHistory";
+import FillKYC from "./pages/FillKYC";
 const App = styled.div`
   width: ${appWidth}px;
   height: ${appHeight}px;
@@ -91,6 +92,7 @@ function AppEX() {
               <Route path="confirm" element={<SwapConfirm />}></Route>
             </Route>
             <Route path="transaction-history" element={<TransactionHistory />} ></Route>
+            <Route path="fill-kyc" element={<FillKYC />} ></Route>
           </Route>
         </Routes>
       </Router>

@@ -211,7 +211,7 @@ const MainLayout = () => {
                                 marginLeft: 10
                             }}>View on Etherscan</TextMd>
                         </Item>
-                        <Item>
+                        <Item onClick={() => navigateClose("/main/fill-kyc")}>
                             <FillKYCIcon />
                             <TextMd style={{
                                 marginLeft: 10

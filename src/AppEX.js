@@ -38,10 +38,14 @@ import VoteSuccess from './pages/VoteSuccess';
 import Login from './pages/auth/Login';
 import Verify from './pages/auth/Verify';
 import MainLayout from './layouts/MainLayout';
+import TransactionHistory from "./pages/TransactionHistory";
+import FillKYC from "./pages/FillKYC";
+
+// Context
+import AppContextProvider from './context/AppContextProvider';
 
 import styled from "styled-components";
 import { appWidth, appHeight } from "./constants/dimentions";
-import TransactionHistory from "./pages/TransactionHistory";
 const App = styled.div`
   width: ${appWidth}px;
   height: ${appHeight}px;
@@ -50,50 +54,53 @@ const App = styled.div`
 function AppEX() {
   return (
     <App>
-      <Router>
-        <Routes >
-          {/* <Route path="/" element={<div>Hello</div>}></Route> */}
-          <Route path="" element={<Auth />}>
-            <Route path="" element={<Login />}></Route>
-            <Route path="verify" element={<Verify />}></Route>
-          </Route>
-          <Route path="doc" element={<Doc />}></Route>
-          <Route path="main" element={<MainLayout />}>
-            <Route path="" element={<Main />}></Route>
-            <Route path="vote/:id" element={<Vote />}></Route>
-            <Route path="vote-success" element={<VoteSuccess />}></Route>
-            <Route path="settings" element={<Settings />}>
-              <Route path="" element={<SettingsIndex />}></Route>
-              <Route path="general" element={<SettingsGeneral />}></Route>
-              <Route path="security" element={<SettingsSecurity />}></Route>
-              <Route path="advanced" element={<SettingsAdvanced />}></Route>
-              <Route path="contacts" element={<SettingsContacts />}></Route>
-              <Route path="add-contact" element={<SettingsAddContact />}></Route>
-              <Route path="networks" element={<SettingsNetworks />}></Route>
-              <Route path="add-network" element={<SettingsAddNetwork />}></Route>
+      <AppContextProvider>
+        <Router>
+          <Routes >
+            {/* <Route path="/" element={<div>Hello</div>}></Route> */}
+            <Route path="" element={<Auth />}>
+              <Route path="" element={<Login />}></Route>
+              <Route path="verify" element={<Verify />}></Route>
             </Route>
-            <Route path="add-funds" element={<AddFunds />}>
-              <Route path="" element={<AddFundsIndex />}></Route>
-              <Route path="credit-detail" element={<AddFundsCreditDetail />}></Route>
+            <Route path="doc" element={<Doc />}></Route>
+            <Route path="main" element={<MainLayout />}>
+              <Route path="" element={<Main />}></Route>
+              <Route path="vote/:id" element={<Vote />}></Route>
+              <Route path="vote-success" element={<VoteSuccess />}></Route>
+              <Route path="settings" element={<Settings />}>
+                <Route path="" element={<SettingsIndex />}></Route>
+                <Route path="general" element={<SettingsGeneral />}></Route>
+                <Route path="security" element={<SettingsSecurity />}></Route>
+                <Route path="advanced" element={<SettingsAdvanced />}></Route>
+                <Route path="contacts" element={<SettingsContacts />}></Route>
+                <Route path="add-contact" element={<SettingsAddContact />}></Route>
+                <Route path="networks" element={<SettingsNetworks />}></Route>
+                <Route path="add-network" element={<SettingsAddNetwork />}></Route>
+              </Route>
+              <Route path="add-funds" element={<AddFunds />}>
+                <Route path="" element={<AddFundsIndex />}></Route>
+                <Route path="credit-detail" element={<AddFundsCreditDetail />}></Route>
+              </Route>
+              <Route path="receive" element={<Receive />}>
+                <Route path="" element={<ReceiveIndex />} ></Route>
+                <Route path="detail/:method" element={<ReceiveDetail />} ></Route>
+                <Route path="qr-code" element={<ReceiveQR_Code />} ></Route>
+              </Route>
+              <Route path="send" element={<Send />}>
+                <Route path="" element={<SendIndex />} ></Route>
+                <Route path="detail" element={<SendDetail />} ></Route>
+                <Route path="confirm" element={<SendConfirm />} ></Route>
+              </Route>
+              <Route path="swap" element={<Swap />}>
+                <Route path="" element={<SwapIndex />}></Route>
+                <Route path="confirm" element={<SwapConfirm />}></Route>
+              </Route>
+              <Route path="transaction-history" element={<TransactionHistory />} ></Route>
+              <Route path="fill-kyc" element={<FillKYC />} ></Route>
             </Route>
-            <Route path="receive" element={<Receive />}>
-              <Route path="" element={<ReceiveIndex />} ></Route>
-              <Route path="detail/:method" element={<ReceiveDetail />} ></Route>
-              <Route path="qr-code" element={<ReceiveQR_Code />} ></Route>
-            </Route>
-            <Route path="send" element={<Send />}>
-              <Route path="" element={<SendIndex />} ></Route>
-              <Route path="detail" element={<SendDetail />} ></Route>
-              <Route path="confirm" element={<SendConfirm />} ></Route>
-            </Route>
-            <Route path="swap" element={<Swap />}>
-              <Route path="" element={<SwapIndex />}></Route>
-              <Route path="confirm" element={<SwapConfirm />}></Route>
-            </Route>
-            <Route path="transaction-history" element={<TransactionHistory />} ></Route>
-          </Route>
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
+      </AppContextProvider>
     </App>
   );
 }

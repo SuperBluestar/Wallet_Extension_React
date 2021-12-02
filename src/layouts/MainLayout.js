@@ -16,13 +16,16 @@ import SettingsIcon from "../components/Icons/Settings";
 import HelpIcon from "../components/Icons/Help";
 import RequestIcon from "../components/Icons/Request";
 import AddIcon from "../components/Icons/Add";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { white, gray, lightgray } from "../constants/colors";
 import { topbarHeight, paddingSm, paddingMd, marginLg, marginSm } from "../constants/dimentions";
 import { zIndex01, zIndex02, zIndex03 } from "../constants/zIndexs";
 import SignalImg from "../components/SignalImg";
 import styled from "styled-components";
 import ReactModal from 'react-modal';
+
+// Context
+import { AppContext } from "../context/AppContextProvider";
 
 const styles = {
     bmBurgerButton: {
@@ -107,6 +110,7 @@ const SingleNetwork = styled.div`
 `;
 
 const MainLayout = () => {
+    const { setOpenError } = useContext(AppContext);
     const navigate = useNavigate();
     const { pathname } = useLocation();
     const [isOpen, setIsOpen] = useState(false);
@@ -144,7 +148,8 @@ const MainLayout = () => {
     },{
         chainId: 0,
         name: "Matic Mainnet"
-    },])
+    },]);
+    
     return (
         <>
             <Menu 
@@ -211,7 +216,7 @@ const MainLayout = () => {
                                 marginLeft: 10
                             }}>View on Etherscan</TextMd>
                         </Item>
-                        <Item>
+                        <Item onClick={() => navigateClose("/main/fill-kyc")}>
                             <FillKYCIcon />
                             <TextMd style={{
                                 marginLeft: 10
@@ -235,6 +240,9 @@ const MainLayout = () => {
                             <RequestIcon />
                             <TextMd style={{
                                 marginLeft: 10
+                            }} onClick={() => { 
+                                setOpenError(true);
+                                closeMenu();
                             }}>Request a feature</TextMd>
                         </Item>
                     </List>

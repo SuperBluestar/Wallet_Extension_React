@@ -1,34 +1,23 @@
-import { useState } from "react";
 import SwapDownIcon from "../components/Icons/SwapDown";
-import RefreshIcon from "../components/Icons/Refresh";
-import InfoIcon from "../components/Icons/Info";
+import UpIcon from "../components/Icons/Up";
 import TextMd from "../styled-components/TextMd";
 import TextLg from "../styled-components/TextLg";
-import TextSm from "../styled-components/TextSm";
 import styled from "styled-components";
 import HigtLight from "../styled-components/HighLight";
-import { borderRadiusSm, marginMd, marginSm, paddingMd, paddingSm, marginLg } from "../constants/dimentions";
+import InputMd from "../styled-components/InputMd";
+import { borderRadiusSm, paddingLg, marginSm, paddingMd, paddingSm, marginLg, marginMd, topbarHeight } from "../constants/dimentions";
 import ButtonGreen from '../styled-components/ButtonGreen';
 import Button from "../styled-components/Button";
 import { gray } from '../constants/colors';
+import ScrollContainer from "react-indiana-drag-scroll";
 
-const BillingHighLight = styled(HigtLight)`
+const BillingHighLight = styled(InputMd)`
     border-radius: ${borderRadiusSm}px;
     width: 100%;
     padding: ${paddingMd}px ${paddingSm}px;
     box-sizing: border-box;
-`;
-
-const BillingOneLine = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: ${marginSm}px 0;
-`;
-
-const BillingOneLineRight = styled.div`
-    display: flex;
-    justify-content: flex-end;
+    margin: ${marginSm}px;
+    text-align: center;
 `;
 
 const TextMdUnderline = styled(TextMd)`
@@ -36,25 +25,16 @@ const TextMdUnderline = styled(TextMd)`
     cursor: pointer;
 `;
 
-const TextSmUnderline = styled(TextSm)`
-    text-decoration: underline;
-    cursor: pointer;
-`;
-
-const Title = styled(TextMd)`
-    font-weight: 700;
-    margin: ${marginSm}px 0;
-`;
-
 const ButtonGray = styled(Button)`
     background-color: ${gray};
 `;
 
-const Confirm = () => {
+const FillKYC = () => {
     return (
-        <>
+        <ScrollContainer style={{
+            height: `calc(100vh - ${topbarHeight}px)`,
+        }} vertical={true} horizontal={false} hideScrollbars={true}>
             <div style={{
-                flexGrow: 1,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -69,79 +49,56 @@ const Confirm = () => {
                     margin: `${marginLg}px 0`
                 }}>Establish your credibility:</TextLg>
             </div>
-
             <div style={{
-                flexGrow: 1,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-            }}>  
-                <TextMd style={{
-                    margin: `${marginLg}px 0`
-                }}>Fill your KYC</TextMd>
-
-                <TextMd style={{
-                    margin: `${marginLg}px 0`
-                }}>Tire 2</TextMd>
+                padding: `${paddingMd}px`,
+            }}>
                 <div style={{
+                    boxShadow: "3px 0 5px gray",
+                    borderRadius: `${borderRadiusSm}px`,
+                    padding: `${paddingSm}px ${paddingLg}px`,
+                    display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    display: "block",
-                    width: "65%",
                 }}>
-                    <BillingHighLight style={{textAlign:"center", marginBottom:"10%"}}>
-                        <TextMd>Full name</TextMd>
-                    </BillingHighLight>
-                    <BillingHighLight style={{textAlign:"center", marginBottom:"10%"}}>
-                        <TextMd>Address</TextMd>
-                    </BillingHighLight>
-                    <BillingHighLight style={{textAlign:"center", marginBottom:"10%"}}>
-                        <TextMd>Phone</TextMd>
-                    </BillingHighLight>
-                    <BillingHighLight style={{textAlign:"center", marginBottom:"10%"}}>
-                        <TextMd>Backup e-mail</TextMd>
-                    </BillingHighLight>
-
                     <TextMd style={{
-                        margin: `${marginLg}px 0`,
-                        textAlign:"center"
+                        padding: `${paddingLg}px 0`
+                    }}>Fill your KYC</TextMd>
+
+                    <TextMd>Tire 2</TextMd>
+                    <BillingHighLight placeholder="Full name"/>
+                    <BillingHighLight placeholder="Address"/>
+                    <BillingHighLight placeholder="Phone"/>
+                    <BillingHighLight placeholder="Backup e-mail"/>
+                    <TextMd style={{
+                        margin: `${marginLg}px 0`
                     }}>Tire 3</TextMd>
                     <TextMd style={{
-                        textAlign:"center"
-                    }}>Upload photo of drivers</TextMd>
-                    <TextMd style={{
-                        textAlign:"center"
-                    }}>license of passport</TextMd>
-
-                    <ButtonGray style={{margin:'0 0 10%'}}>
-                        <SwapDownIcon  />
+                        width: "60%",
+                        textAlign: "center",
+                    }}>Upload photo of drivers license of passport</TextMd>
+                    <ButtonGray style={{
+                        margin: `${marginSm}px`
+                    }}>
+                        <UpIcon  />
                     </ButtonGray>
-
                     <TextMd style={{
-                        textAlign:"center"
-                    }}>Upload an invoice with</TextMd>
-                    <TextMd style={{
-                        textAlign:"center"
-                    }}>your address showing</TextMd>
-
-                    <ButtonGray style={{margin:'0 0 10%'}}>
-                        <SwapDownIcon  />
+                        width: "60%",
+                        textAlign: "center",
+                    }}>Upload an invoice with your address showing</TextMd>
+                    <ButtonGray style={{
+                        margin: `${marginSm}px`
+                    }}>
+                        <UpIcon  />
                     </ButtonGray>
-
-                    <ButtonGreen onClick={() => {}} style={{textAlign:'center'}}>Next</ButtonGreen>
-                    
-                    <TextMdUnderline style={{textAlign:'center', marginTop:'10%'}}>Later(use only tier 1 KYC)</TextMdUnderline>
-
+                    <ButtonGreen onClick={() => {}} style={{marginTop:`${marginLg}px`}}>Next</ButtonGreen>
+                    <TextMdUnderline>Later(use only tier 1 KYC)</TextMdUnderline>
                     <TextMd style={{
-                        margin: `${marginLg}px 0`,
-                        textAlign: 'center',
+                        margin: `${marginMd}px`
                     }}>2/2</TextMd>
                 </div>
-                
             </div>
-        </>
+        </ScrollContainer>
     )
 }
 
-export default Confirm;
+export default FillKYC;

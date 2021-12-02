@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ScrollContainer from "react-indiana-drag-scroll";
+// import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
 import HighLight from "../styled-components/HighLight";
 import SendIcon from "../components/Icons/Send";
@@ -10,6 +10,7 @@ import { borderRadiusSm, marginMd, paddingSm, circleBtnSize, marginSm, paddingLg
 import ReactModal from 'react-modal';
 import TextLg from "../styled-components/TextLg";
 import HigtLight from "../styled-components/HighLight";
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const SingleTransaction = styled.div`
     width: 100%;
@@ -145,10 +146,14 @@ const TransactionHistory = (props) => {
         amount: "Amount"
     },])
     return (
-        <ScrollContainer style={{
+        <PerfectScrollbar style={{
+            height: `calc(100vh - ${topbarHeight}px - ${paddingLg * 2}px)`,
+            padding: `${paddingLg}px`
+        }}>
+        {/* <ScrollContainer style={{
             padding: `${paddingLg}px`,
             height: `calc(100vh - ${topbarHeight}px - ${paddingLg * 2}px)`,
-        }} vertical={true} horizontal={false} hideScrollbars={true}>
+        }} vertical={true} horizontal={false} hideScrollbars={true}> */}
             {transactions.map((transaction, id) => (<SingleTransaction key={id}>
                 <TextMd>{transaction.transactionNumber} - {transaction.timestamp} - {transaction.device}</TextMd>
                 <TransactionDetail>
@@ -246,7 +251,8 @@ const TransactionHistory = (props) => {
                     window.open("https://google.com")
                 }}>View on BSCscan</TextMdUnderline>
             </ReactModal>
-        </ScrollContainer>
+        {/* </ScrollContainer> */}
+        </PerfectScrollbar>
     )
 }
 

@@ -1,4 +1,4 @@
-import { marginMd, topbarHeight, paddingLg, marginSm } from '../../constants/dimentions';
+import { marginMd, topbarHeight, paddingLg, marginSm, paddingSm } from '../../constants/dimentions';
 import { black, blue, lightgray } from '../../constants/colors';
 import ScrollContainer from 'react-indiana-drag-scroll';
 import RadioButton from '../../components/RadioButton';
@@ -8,6 +8,7 @@ import { useState } from "react";
 import TextMd from "../../styled-components/TextMd";
 import Title from "../../components/Title";
 import Description from "../../components/Description";
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const radioList = [{
     text: "Native", 
@@ -19,7 +20,11 @@ const General = () => {
     const [hideTokensWithoutBalance, setHideTokensWithoutBalance] = useState(false);
     const [activeRadio, setActiveRadio] = useState(0);
     return (
-        <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}>
+        <PerfectScrollbar style={{
+            height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
+            paddingRight: `${paddingSm}px`
+        }}>
+        {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Title>Currency conversion</Title>
             <Description>Display FIAT values in using a specific currency throughout the application</Description>
             <ComboBox 
@@ -113,7 +118,8 @@ const General = () => {
                     }}>blockies</TextMd>
                 </div>
             </div>
-        </ScrollContainer>
+        {/* </ScrollContainer> */}
+        </PerfectScrollbar>
     )
 }
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { white, gray } from '../constants/colors';
-import { circleBtnSize, tabItemWidth, tabItemBorderRadius, paddingLg, marginSm, tabItemHeight, footerHeight, tokenItemHeight, votingItemHeight, borderRadiusSm, marginMd } from '../constants/dimentions';
+import { circleBtnSize, tabItemWidth, tabItemBorderRadius, paddingLg, marginSm, tabItemHeight, footerHeight, tokenItemHeight, votingItemHeight, borderRadiusSm, marginMd, paddingSm, paddingMd } from '../constants/dimentions';
 import HighLight from "../styled-components/HighLight";
 import TextSm from "../styled-components/TextSm";
 import ButtonGray from "../styled-components/ButtonGray";
@@ -11,10 +11,11 @@ import SendIcon from "../components/Icons/Send";
 import NFTFolder from "../components/NFTFolder";
 import IssuerFolder from "../components/IssuerFolder";
 import TextMd from '../styled-components/TextMd';
-import ScrollContainer from 'react-indiana-drag-scroll';
+// import ScrollContainer from 'react-indiana-drag-scroll';
 import RightIcon from '../components/Icons/Right';
 import TrashIcon from '../components/Icons/Trash';
 import SwapIcon from '../components/Icons/Swap';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const MainBoard = styled.div`
     height: calc(100% - 50px);
@@ -146,7 +147,11 @@ const Main = () => {
     const tabs = [{
         tabText: "Assets", 
         tabContent: <TabPanel>
-            <ScrollContainer className="scroll-container" vertical={true} horizontal={true} hideScrollbars={true}>
+            <PerfectScrollbar style={{
+                height: "auto",
+                paddingBottom: `${paddingSm}px`
+            }}>
+            {/* <ScrollContainer className="scroll-container" vertical={true} horizontal={true} hideScrollbars={true}> */}
                 <TextMd>Marketplace</TextMd>
                 <MarketPlaceNFTs>
                     {[0,0,0,0,0].map((nft, id) => {
@@ -159,7 +164,8 @@ const Main = () => {
                         return <IssuerFolder key={id} />
                     })}
                 </MarketPlaceIssuers>
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
             <Footer>
                 <ButtonGray style={{
                     width: "80%",
@@ -169,7 +175,11 @@ const Main = () => {
     },{
         tabText: "Tokens", 
         tabContent: <TabPanel>
-            <ScrollContainer style={{height: "200px"}} vertical={true} horizontal={false} hideScrollbars={false}>
+            <PerfectScrollbar style={{
+                height: "200px",
+                paddingRight: `${paddingMd}px`
+            }}>
+            {/* <ScrollContainer style={{height: "200px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0,0].map((issuer, id) => {
                     return (<TokenItem key={id} >
                         <HighLight></HighLight>
@@ -191,7 +201,8 @@ const Main = () => {
                         </div>
                     </TokenItem>)
                 })}
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
             <Footer>
                 <ButtonGray style={{
                     width: "80%",
@@ -201,7 +212,11 @@ const Main = () => {
     },{
         tabText: "Voting", 
         tabContent: <TabPanel>
-            <ScrollContainer style={{height: "260px"}} className="scroll-container" vertical={true} horizontal={false} hideScrollbars={false}>
+            <PerfectScrollbar style={{
+                height: "260px",
+                paddingRight: `${paddingMd}px`
+            }}>
+            {/* <ScrollContainer style={{height: "260px"}} className="scroll-container" vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0].map((vote, id) => {
                     return (
                         <Link to={`/main/vote/${id}`} key={id}>
@@ -209,7 +224,8 @@ const Main = () => {
                         </Link>
                     )
                 })}
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
         </TabPanel>
     },{
         tabText: "Connected sites", 
@@ -222,7 +238,11 @@ const Main = () => {
                 <TextMd>SiteInfo</TextMd>
                 <TextMd>Disconnect</TextMd>
             </div>
-            <ScrollContainer style={{height: "260px"}} vertical={true} horizontal={false} hideScrollbars={false}>
+            <PerfectScrollbar style={{
+                height: "260px",
+                paddingRight: `${paddingMd}px`
+            }}>
+            {/* <ScrollContainer style={{height: "260px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0,0].map((issuer, id) => {
                     return (<SiteItem key={id} >
                         <HighLight></HighLight>
@@ -244,7 +264,8 @@ const Main = () => {
                         </div>
                     </SiteItem>)
                 })}
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
         </TabPanel>
     }];
     return (

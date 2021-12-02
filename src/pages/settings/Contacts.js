@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import ScrollContainer from "react-indiana-drag-scroll";
+// import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
-import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight } from "../../constants/dimentions";
+import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, paddingSm } from "../../constants/dimentions";
 import Title from "../../components/Title";
 import TextMd from "../../styled-components/TextMd";
 import ButtonGreen from "../../styled-components/ButtonGreen";
 import TrashIcon from '../../components/Icons/Trash';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const ContactItem = styled.div`
     display: flex;
@@ -24,7 +25,11 @@ const Contact = () => {
     const navigate = useNavigate();
     return (
         <>
-            <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`}} vertical={true} horizontal={false} hideScrollbars={true}>
+            <PerfectScrollbar style={{
+                height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
+                paddingRight: `${paddingSm}px`
+            }}>
+            {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
                 <Title>My contacts</Title>
                 {[0,0,0,0,0,0,0,0,0].map((contact, id) => {
                     return (<ContactItem key={id} >
@@ -46,7 +51,8 @@ const Contact = () => {
                         </div>
                     </ContactItem>)
                 })}
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
             <Footer>
                 <ButtonGreen style={{
                     width: "80%",

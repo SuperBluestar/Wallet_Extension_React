@@ -1,15 +1,14 @@
-import SwapDownIcon from "../components/Icons/SwapDown";
 import UpIcon from "../components/Icons/Up";
 import TextMd from "../styled-components/TextMd";
 import TextLg from "../styled-components/TextLg";
 import styled from "styled-components";
-import HigtLight from "../styled-components/HighLight";
 import InputMd from "../styled-components/InputMd";
 import { borderRadiusSm, paddingLg, marginSm, paddingMd, paddingSm, marginLg, marginMd, topbarHeight } from "../constants/dimentions";
 import ButtonGreen from '../styled-components/ButtonGreen';
 import Button from "../styled-components/Button";
 import { gray } from '../constants/colors';
-import ScrollContainer from "react-indiana-drag-scroll";
+// import ScrollContainer from "react-indiana-drag-scroll";
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const BillingHighLight = styled(InputMd)`
     border-radius: ${borderRadiusSm}px;
@@ -31,9 +30,12 @@ const ButtonGray = styled(Button)`
 
 const FillKYC = () => {
     return (
-        <ScrollContainer style={{
+        <PerfectScrollbar style={{
             height: `calc(100vh - ${topbarHeight}px)`,
-        }} vertical={true} horizontal={false} hideScrollbars={true}>
+        }}>
+        {/* <ScrollContainer style={{
+            height: `calc(100vh - ${topbarHeight}px)`,
+        }} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <div style={{
                 display: "flex",
                 flexDirection: "column",
@@ -97,7 +99,8 @@ const FillKYC = () => {
                     }}>2/2</TextMd>
                 </div>
             </div>
-        </ScrollContainer>
+        {/* </ScrollContainer> */}
+        </PerfectScrollbar>
     )
 }
 

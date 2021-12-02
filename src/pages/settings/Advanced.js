@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ScrollContainer from "react-indiana-drag-scroll";
+// import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
 import ButtonGreen from '../../styled-components/ButtonGreen';
 import TextMd from '../../styled-components/TextMd';
@@ -10,6 +10,7 @@ import Switch from '../../components/Switch';
 import HightLight from '../../styled-components/HighLight';
 import { lightgray } from "../../constants/colors";
 import { paddingSm, marginMd, borderRadiusSm } from "../../constants/dimentions";
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const IpfsGateway = styled(HightLight)`
     width: 100%;
@@ -28,7 +29,11 @@ const Advanced = () => {
     const [customizeNonce, setCustomizeNonce] = useState(false);
     const [logs, setLogs] = useState(false);
     return (
-        <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}>
+        <PerfectScrollbar style={{
+            height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
+            paddingRight: `${paddingSm}px`
+        }}>
+        {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Title>Reset account</Title>
             <Description>protect your wallet by saving your secret recovery phrase in various places like on a piece of paper, password manager and/or the cloud.</Description>
             <div style={{
@@ -78,7 +83,8 @@ const Advanced = () => {
             }}>
                 <ButtonGreen>Download state logs</ButtonGreen>
             </div>
-        </ScrollContainer>
+        {/* </ScrollContainer> */}
+        </PerfectScrollbar>
     )
 }
 

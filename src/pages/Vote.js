@@ -2,11 +2,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import TextLg from '../styled-components/TextLg';
 import TextMd from '../styled-components/TextMd';
-import { coverImgHeight, paddingLg, paddingSm, footerHeight, topbarHeight } from '../constants/dimentions';
+import { coverImgHeight, paddingLg, paddingSm, footerHeight, topbarHeight, paddingMd } from '../constants/dimentions';
 import { heavygray } from '../constants/colors';
-import ScrollContainer from 'react-indiana-drag-scroll';
+// import ScrollContainer from 'react-indiana-drag-scroll';
 import ButtonRed from '../styled-components/ButtonRed';
 import ButtonGreen from '../styled-components/ButtonGreen';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const CoverImg = styled.div`
     width: 100%;
@@ -45,12 +46,17 @@ const Vote = () => {
                 <TextLg>Cover picture of voting subject</TextLg>
             </CoverImg>
             <TextContent>
-                <ScrollContainer style={{height: "260px"}} vertical={true} horizontal={false} hideScrollbars={false}>
+                <PerfectScrollbar style={{
+                    height: "260px",
+                    paddingRight: `${paddingMd}px`
+                }}>
+                {/* <ScrollContainer style={{height: "260px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                     <TextLg>Header 1</TextLg>
                     <TextMd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</TextMd>
                     <TextMd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</TextMd>
                     <TextMd>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</TextMd>
-                </ScrollContainer>
+                {/* </ScrollContainer> */}
+                </PerfectScrollbar>
             </TextContent>
             <Footer>
                 <TextMd>Your vote:</TextMd>

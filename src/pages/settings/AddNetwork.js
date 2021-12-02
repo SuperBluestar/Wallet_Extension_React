@@ -1,12 +1,10 @@
-import { useState } from "react";
-import ScrollContainer from "react-indiana-drag-scroll";
+// import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
-import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, marginLg } from "../../constants/dimentions";
-import Title from "../../components/Title";
+import { topbarHeight, paddingLg, marginSm, paddingSm, marginLg, footerHeight } from "../../constants/dimentions";
 import TextMd from "../../styled-components/TextMd";
 import ButtonGreen from "../../styled-components/ButtonGreen";
-import TrashIcon from '../../components/Icons/Trash';
 import InputWhite from "../../styled-components/InputWhite";
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const InputBox = styled(InputWhite)`
     border: none;
@@ -22,9 +20,13 @@ const InputBox = styled(InputWhite)`
 const AddNetwork = () => {
     return (
         <>
-            <ScrollContainer style={{
+            <PerfectScrollbar style={{
                 height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`,
-            }} vertical={true} horizontal={false} hideScrollbars={true}>
+                paddingRight: `${paddingSm}px`
+            }}>
+            {/* <ScrollContainer style={{
+                height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`,
+            }} vertical={true} horizontal={false} hideScrollbars={true}> */}
                 <TextMd style={{
                     textAlign: "center",
                 }}>Network Name</TextMd>
@@ -70,7 +72,8 @@ const AddNetwork = () => {
                 }}>
                     <InputBox placeholder={"Url"}/ >
                 </div>
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
             <div style={{
                 display: "flex",
                 justifyContent: "center",

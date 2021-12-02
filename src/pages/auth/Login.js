@@ -17,7 +17,7 @@ const Login = () => {
             setSuccess(true);
             setTimeout(() => {
                 setSuccess(false);
-                setTimeout(() => navigate("/main"), 1000);
+                navigate("/main");
             }, 1000);
         }, 2000);
     }

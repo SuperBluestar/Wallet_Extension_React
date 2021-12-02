@@ -1,5 +1,8 @@
-import { useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+// import { useEffect } from 'react';
+import { 
+    Outlet, 
+    // useNavigate 
+} from 'react-router-dom';
 import styled from 'styled-components';
 import { paddingSm } from "../constants/dimentions";
 
@@ -14,10 +17,10 @@ const CenterView = styled.div`
 `;
 
 const Auth = () => {
-    const navigate = useNavigate();
-    useEffect(() => {
-      navigate("/main");
-    }, [])
+    // const navigate = useNavigate();
+    // useEffect(() => {
+    //   navigate("/main");
+    // }, [])
     return (
         <CenterView>
             <Outlet />

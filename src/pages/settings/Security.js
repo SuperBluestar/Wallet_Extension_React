@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ScrollContainer from 'react-indiana-drag-scroll';
+// import ScrollContainer from 'react-indiana-drag-scroll';
 import styled from 'styled-components';
 import { topbarHeight, paddingLg, metamaskInfoVideoWidth, metamaskInfoVideoHeight, borderRadiusSm, paddingSm, marginSm, marginMd, paddingMd } from '../../constants/dimentions';
 import { lightgray } from '../../constants/colors';
@@ -11,6 +11,7 @@ import Title from "../../components/Title";
 import Description from "../../components/Description";
 import ComboBox from '../../components/ComboBox';
 import Switch from '../../components/Switch';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const MetamaskInfo = styled(HightLight)`
     width: ${metamaskInfoVideoWidth}px;
@@ -34,7 +35,11 @@ const Security = () => {
     const [privacyMode, setPrivacyMode] = useState(false);
     const [incomingTransactoin, setIncomingTransactoin] = useState(false);
     return (
-        <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}>
+        <PerfectScrollbar style={{
+            height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
+            paddingRight: `${paddingSm}px`
+        }}>
+        {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Title>Protect your wallet</Title>
             <div style={{
                 display: "flex",
@@ -125,7 +130,8 @@ const Security = () => {
                 <Switch on={incomingTransactoin} onClick={() => setIncomingTransactoin(oldVal => !oldVal)}></Switch>
             </div>
             <Description>Third party api is used to show your incoming transactions in the history. Turn off if you don’t want us to pull data from those services</Description>
-        </ScrollContainer>
+        {/* </ScrollContainer> */}
+        </PerfectScrollbar>
     )
 }
 

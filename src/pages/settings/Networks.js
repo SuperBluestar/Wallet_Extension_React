@@ -1,18 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import ScrollContainer from "react-indiana-drag-scroll";
+// import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
-import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, marginMd, marginLg } from "../../constants/dimentions";
-import Title from "../../components/Title";
+import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, marginMd, marginLg, paddingSm } from "../../constants/dimentions";
 import TextMd from "../../styled-components/TextMd";
 import ButtonGreen from "../../styled-components/ButtonGreen";
-import TrashIcon from '../../components/Icons/Trash';
 import SignalImg from '../../components/SignalImg';
-
-const ContactItem = styled.div`
-    display: flex;
-    height: ${contactItemHeight}px;
-    margin: ${marginSm}px 0px;
-`;
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const Footer = styled.div`
     height: ${footerHeight}px;
@@ -41,7 +34,11 @@ const Networks = () => {
     const navigate = useNavigate();
     return (
         <>
-            <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`}} vertical={true} horizontal={false} hideScrollbars={true}>
+            <PerfectScrollbar style={{
+                height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
+                paddingRight: `${paddingSm}px`
+            }}>
+            {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
                 <ul style={{
                     listStyle: "none",
                     paddingLeft: 0,
@@ -61,7 +58,8 @@ const Networks = () => {
                         )
                     })}
                 </ul>
-            </ScrollContainer>
+            {/* </ScrollContainer> */}
+            </PerfectScrollbar>
             <Footer>
                 <ButtonGreen style={{
                     width: "80%",

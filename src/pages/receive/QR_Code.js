@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 import { paddingSm, qrcodeBoardHeight, qrcodeBoardWidth, qrcodeHeight, qrcodeWidth, borderRadiusMd, marginLg, topbarHeight } from '../../constants/dimentions';
-import TextLg from '../../styled-components/TextLg';
+import Text from '../../styled-components/Text';
 import QRCode from 'qrcode';
 import { useRef, useState } from 'react';
 import useEffectOnce from '../../hooks/useEffectOnce';
 import { lightgray } from '../../constants/colors';
-import TextMd from '../../styled-components/TextMd';
-import ButtonBlue from '../../styled-components/ButtonBlue';
-import ButtonGray from '../../styled-components/ButtonGray';
+import Button from '../../styled-components/Button';
 import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 
 const QRCodeBoard = styled.div`
@@ -24,7 +22,7 @@ position: relative;
     width: ${qrcodeWidth}px !important;
     height: ${qrcodeHeight}px !important;
 }
-& ${ButtonBlue} {
+& ${Button} {
     position: absolute;
     width: ${qrcodeWidth}px;
     top: 100%;
@@ -56,20 +54,27 @@ const QR_Code = () => {
         })
     }, []);
     return (<>
-        <TextLg style={{
+        <Text style={{
             margin: `${marginLg}px 0`,
-        }}>Receive</TextLg>
+        }}>Receive</Text>
         <QRCodeBoard>
             <canvas ref={CanvasRef}/>
-            <a href={qrcodeURL} target="_blank"><TextMd>{qrcodeURL.slice(0, Math.min(10, qrcodeURL.length))} ...</TextMd></a>
-            <ButtonBlue>Copy address</ButtonBlue>
+            <a href={qrcodeURL} target="_blank"><Text>{qrcodeURL.slice(0, Math.min(10, qrcodeURL.length))} ...</Text></a>
+            <Button style={{
+                backgroundColor: "#7EC8DF",
+                width: "215px",
+                height: "45px"
+            }}>Copy address</Button>
         </QRCodeBoard>
         <div style={{ 
             flexGrow: 1,
             display: "flex",
             alignItems: "center",
         }}>
-            <ButtonGray>Request payment</ButtonGray>
+            <Button style={{
+                width: "215px",
+                height: "45px"
+            }}>Request payment</Button>
         </div>
     </>)
 }

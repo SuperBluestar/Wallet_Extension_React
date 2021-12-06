@@ -1,19 +1,22 @@
 // import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
 import { topbarHeight, paddingLg, marginSm, paddingSm, marginLg, footerHeight } from "../../constants/dimentions";
-import TextMd from "../../styled-components/TextMd";
-import ButtonGreen from "../../styled-components/ButtonGreen";
+import Text from "../../styled-components/Text";
+import Button from "../../styled-components/Button";
 import InputWhite from "../../styled-components/InputWhite";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const InputBox = styled(InputWhite)`
     border: none;
-    box-shadow: 0px 2px 10px grey;
-    margin: ${marginSm}px 0;
+    width: 187px;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
     text-align: center;
     &:focus {
         border: none;
         outline: none;
+    }
+    &::placeholder {
+        color: black;
     }
 `;
 
@@ -27,48 +30,58 @@ const AddNetwork = () => {
             {/* <ScrollContainer style={{
                 height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`,
             }} vertical={true} horizontal={false} hideScrollbars={true}> */}
-                <TextMd style={{
+                <Text style={{
                     textAlign: "center",
-                }}>Network Name</TextMd>
+                    marginBottom: "8px"
+                }}>Network Name</Text>
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
+                    marginBottom: "23px"
                 }}>
                     <InputBox placeholder={"Name"}/ >
                 </div>
-                <TextMd style={{
+                <Text style={{
                     textAlign: "center",
-                }}>RPC Url</TextMd>
+                    marginBottom: "8px"
+                }}>RPC Url</Text>
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
+                    marginBottom: "23px"
                 }}>
                     <InputBox placeholder={"New RPC Network"}/ >
                 </div>
-                <TextMd style={{
+                <Text style={{
                     textAlign: "center",
-                }}>Chain Id</TextMd>
+                    marginBottom: "8px"
+                }}>Chain Id</Text>
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
+                    marginBottom: "23px"
                 }}>
                     <InputBox placeholder={"Chain id"}/ >
                 </div>
-                <TextMd style={{
+                <Text style={{
                     textAlign: "center",
-                }}>Symbol</TextMd>
+                    marginBottom: "8px"
+                }}>Symbol</Text>
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
+                    marginBottom: "23px"
                 }}>
                     <InputBox placeholder={"Symbol (optional)"}/ >
                 </div>
-                <TextMd style={{
+                <Text style={{
                     textAlign: "center",
-                }}>Block explorer url</TextMd>
+                    marginBottom: "8px"
+                }}>Block explorer url</Text>
                 <div style={{
                     display: "flex",
                     justifyContent: "center",
+                    marginBottom: "23px"
                 }}>
                     <InputBox placeholder={"Url"}/ >
                 </div>
@@ -79,9 +92,11 @@ const AddNetwork = () => {
                 justifyContent: "center",
                 marginTop: `${marginLg}px`,
             }}>
-                <ButtonGreen style={{
-                    width: "80%",
-                }}>Add contact</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>Add Network</Button>
             </div>
         </>
     )

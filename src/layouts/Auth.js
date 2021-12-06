@@ -11,7 +11,7 @@ const CenterView = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ${paddingSm}px 22px;
+    padding: 0px 22px;
     flex-direction: column;
     height: 100%;
 `;

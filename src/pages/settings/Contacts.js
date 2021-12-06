@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, paddingSm } from "../../constants/dimentions";
 import Title from "../../components/Title";
-import TextMd from "../../styled-components/TextMd";
-import ButtonGreen from "../../styled-components/ButtonGreen";
+import Text from "../../styled-components/Text";
+import Button from "../../styled-components/Button";
 import TrashIcon from '../../components/Icons/Trash';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
@@ -34,29 +34,34 @@ const Contact = () => {
                 {[0,0,0,0,0,0,0,0,0].map((contact, id) => {
                     return (<ContactItem key={id} >
                         <div style={{
-                            marginLeft: marginSm,
                             flexGrow: 1,
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "space-evenly"
                         }}>
-                            <TextMd>Crypto.com wallet</TextMd>
-                            <TextMd>*public wallet address here*</TextMd>
+                            <Text style={{
+                                fontSize: "10px"
+                            }}>Crypto.com wallet</Text>
+                            <Text style={{
+                                fontSize: "10px"
+                            }}>*public wallet address here*</Text>
                         </div>
                         <div style={{
                             display: "flex",
                             alignItems: "center",
                         }}>
-                            <TrashIcon></TrashIcon>
+                            <TrashIcon width={19} height={20}></TrashIcon>
                         </div>
                     </ContactItem>)
                 })}
             {/* </ScrollContainer> */}
             </PerfectScrollbar>
             <Footer>
-                <ButtonGreen style={{
-                    width: "80%",
-                }} onClick={() => navigate("/main/settings/add-contact")}>Add contact</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }} onClick={() => navigate("/main/settings/add-contact")}>Add contact</Button>
             </Footer>
         </>
     )

@@ -1,8 +1,9 @@
-import TextLg from "../styled-components/TextLg";
+import Text from "../styled-components/Text";
 import styled from "styled-components";
 
-const Title = styled(TextLg)`
-    font-weight: 600;
+const Title = styled(Text)`
+    font-weight: 700;
+    font-size: 14px;
 `;
 
 export default Title;

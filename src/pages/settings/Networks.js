@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 // import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
 import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, marginMd, marginLg, paddingSm } from "../../constants/dimentions";
-import TextMd from "../../styled-components/TextMd";
-import ButtonGreen from "../../styled-components/ButtonGreen";
+import Text from "../../styled-components/Text";
+import Button from "../../styled-components/Button";
 import SignalImg from '../../components/SignalImg';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
@@ -41,19 +41,20 @@ const Networks = () => {
             {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
                 <ul style={{
                     listStyle: "none",
-                    paddingLeft: 0,
-                    marginTop: `${marginLg}px`,
+                    paddingLeft: "5px",
+                    marginTop: `50px`,
                 }}>
                     {networks.map((network, id) => {
                         return (
                             <li key={id} style={{
                                 display: "flex",
-                                margin: `${marginMd}px 0`,
+                                alignItems: "center",
+                                marginBottom: "27px"
                             }}>
                                 <SignalImg signal={false}></SignalImg>
-                                <TextMd style={{
-                                    marginLeft: `${marginSm}px`
-                                }}>{network.name}</TextMd>
+                                <Text style={{
+                                    marginLeft: `25px`
+                                }}>{network.name}</Text>
                             </li>
                         )
                     })}
@@ -61,9 +62,11 @@ const Networks = () => {
             {/* </ScrollContainer> */}
             </PerfectScrollbar>
             <Footer>
-                <ButtonGreen style={{
-                    width: "80%",
-                }} onClick={() => navigate("/main/settings/add-network")}>Add Network</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }} onClick={() => navigate("/main/settings/add-network")}>Add Network</Button>
             </Footer>
         </>
     )

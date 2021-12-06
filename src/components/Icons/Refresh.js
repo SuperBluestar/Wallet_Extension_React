@@ -1,9 +1,9 @@
 import Refresh from '../../assets/refresh.png';
-import { iconWidth } from "../../constants/dimentions";
 
-export default () => (
+export default ({style, width = 9, height = 9, ...props}) => (
     <img style={{
-        width: iconWidth,
-        height: iconWidth
+        width: width,
+        height: height,
+        ...style
     }} src={Refresh} alt="Refresh"/>
 )

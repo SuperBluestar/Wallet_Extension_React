@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import ButtonGreen from '../../styled-components/ButtonGreen';
+import Button from '../../styled-components/Button';
 import Spinner from '../../components/Spinner';
 import Success from '../../components/Success';
 import { Logo, Title, FullInput, Center, TextUnderline } from "./Common";
@@ -23,25 +23,36 @@ const Login = () => {
     }
     return (
         <>
-            <Logo>Valo.id logo</Logo>
-            { loading ? <Spinner/> : (
+            <Logo className="font-roboto-400">Valo.id logo</Logo>
+            { loading ? <Spinner style={{
+                marginTop: "35px"
+            }}/> : (
                 success ? <>
-                    <Success />
+                    <Success style={{
+                        marginTop: "33px"
+                    }}/>
                 </> :
             <>
-                <Title>Sign In</Title>
-                <FullInput placeholder="Profile id" />
-                <FullInput placeholder="Password or other" />
-                <Center>
+                <Title className="font-roboto-400">Sign In</Title>
+                <FullInput className="font-roboto-400" style={{
+                    marginBottom: "33px"
+                }} placeholder="Profile id" />
+                <FullInput className="font-roboto-400" placeholder="Password or other" />
+                <Center style={{
+                    padding: "50px",
+                }}>
                     <Link to="/verify">
                         <TextUnderline style={{
-                            marginTop: "50px",
-                            marginBottom: "50px",
+                            fontSize: "12px",
+                            color: "#000000",
                         }}>Register</TextUnderline>
                     </Link>
                 </Center>
                 <Center>
-                    <ButtonGreen onClick={loginHandler}>Sign In</ButtonGreen>
+                    <Button style={{
+                        width: "111px",
+                        backgroundColor: "#15EA37",
+                    }} onClick={loginHandler}>Sign In</Button>
                 </Center>
             </>) }
         </>

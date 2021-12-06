@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import ReactModal from 'react-modal';
 import { zIndex03 } from "../constants/zIndexs";
-import TextLg from "../styled-components/TextLg";
+import Text from "../styled-components/Text";
 
 export const AppContext = createContext({});
 
@@ -37,10 +37,10 @@ const AppContextProvider = ({children}) => {
                     }
                 }}
             >
-                <TextLg style={{margin:"10% 0 10%"}}>OopS.</TextLg>
-                <TextLg>ERROR</TextLg>
-                <TextLg style={{marginBottom:"10%"}}>404</TextLg>
-                <TextLg style={{marginBottom:"10%", color:"#FF5656"}}>x _ X</TextLg>
+                <Text style={{margin:"10% 0 10%"}}>OopS.</Text>
+                <Text>ERROR</Text>
+                <Text style={{marginBottom:"10%"}}>404</Text>
+                <Text style={{marginBottom:"10%", color:"#FF5656"}}>x _ X</Text>
             </ReactModal>
         </AppContext.Provider>
     )

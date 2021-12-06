@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import { paddingSm, topbarHeight, marginLg, marginSm } from '../constants/dimentions';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import TextLg from '../styled-components/TextLg';
-import ButtonGreen from '../styled-components/ButtonGreen';
+import Text from '../styled-components/Text';
+import Button from '../styled-components/Button';
 import ScrollContainer from "react-indiana-drag-scroll";
 
 const SendLayout = styled.div`
-    padding: ${paddingSm}px;
+    padding: 31px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - ${topbarHeight}px - ${paddingSm * 2}px);
+    height: calc(100vh - ${topbarHeight}px - ${31 * 2}px);
 `;
 
 const Footer = styled.div`
     display: flex;
     align-items: center;
-    height: 100px;
+    height: 45px;
 `;
 
 const baseUrl = "/main/send"
@@ -37,9 +37,9 @@ const Send = () => {
     const { pathname } = useLocation();
     return (
         <SendLayout>
-            <TextLg style={{
-                margin: `${marginLg}px 0`,
-            }}>Send</TextLg>
+            <Text style={{
+                marginBottom: `18px`,
+            }}>Send</Text>
             <ScrollContainer style={{
                 flexGrow: 1,
                 display: "flex",
@@ -51,9 +51,11 @@ const Send = () => {
                 <Outlet />
             </ScrollContainer>
             <Footer>
-                <ButtonGreen style={{
-                    marginBottom: `${marginSm}px`,
-                }} onClick={() => {navigate(toSubUrls[subUrls.indexOf(pathname.slice(baseUrl.length, pathname.length))])}}>Next</ButtonGreen>
+                <Button style={{
+                    width: "123px",
+                    height: "45px",
+                    backgroundColor: "#15EA37"
+                }} onClick={() => {navigate(toSubUrls[subUrls.indexOf(pathname.slice(baseUrl.length, pathname.length))])}}>Next</Button>
             </Footer>
         </SendLayout>
     )

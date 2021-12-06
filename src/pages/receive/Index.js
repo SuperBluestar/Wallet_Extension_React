@@ -1,37 +1,47 @@
-import ButtonGreen from "../../styled-components/ButtonGreen";
-import TextLg from "../../styled-components/TextLg";
-import TextMd from "../../styled-components/TextMd";
+import Button from "../../styled-components/Button";
+import Text from "../../styled-components/Text";
 import { marginLg, marginMd, marginSm } from '../../constants/dimentions';
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
     const navigate = useNavigate();
     return (<>
-        <TextLg style={{
-            margin: `${marginLg}px 0`,
-        }}>Request a payment</TextLg>
-        <TextMd style={{
-            margin: `${marginLg}px 0`,
-        }}>Send link</TextMd>
-        <TextMd>Your request is ready to send!</TextMd>
-        <TextMd style={{
-            margin: `${marginMd}px`,
+        <Text style={{
+            marginBottom: `56px`,
+        }}>Request a payment</Text>
+        <Text style={{
+            margin: `19px`,
+        }}>Send link</Text>
+        <Text style={{
+            marginBottom: "16px"
+        }}>Your request is ready to send!</Text>
+        <Text style={{
             width: `50%`,
             textAlign: "center",
-        }}>Send this link to a friend, and it will ask them to send *amount & token here*</TextMd>
-        <TextMd style={{
-            margin: `${marginLg}px`,
+            marginBottom: "37px"
+        }}>Send this link to a friend, and it will ask them to send *amount & token here*</Text>
+        <Text style={{
+            marginBottom: `34px`,
             textAlign: "center",
-        }}>*link here*</TextMd>
-        <ButtonGreen style={{
-            marginBottom: `${marginSm}px`,
-        }}>Copy to clipboard</ButtonGreen>
-        <ButtonGreen style={{
-            marginBottom: `${marginSm}px`,
-        }} onClick={() => navigate('/main/receive/detail/qr-code')}>QR code</ButtonGreen>
-        <ButtonGreen style={{
-            marginBottom: `${marginSm}px`,
-        }}>Send link</ButtonGreen>
+        }}>*link here*</Text>
+        <Button style={{
+            marginBottom: `10px`,
+            backgroundColor: "#15EA37",
+            width: "145px",
+            height: "45px"
+        }}>Copy to clipboard</Button>
+        <Button style={{
+            marginBottom: `10px`,
+            backgroundColor: "#15EA37",
+            width: "145px",
+            height: "45px"
+        }} onClick={() => navigate('/main/receive/detail/qr-code')}>QR code</Button>
+        <Button style={{
+            marginBottom: `10px`,
+            backgroundColor: "#15EA37",
+            width: "145px",
+            height: "45px"
+        }}>Send link</Button>
     </>)
 }
 

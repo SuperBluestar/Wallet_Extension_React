@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import TextLg from "../../styled-components/TextLg";
-import TextMd from "../../styled-components/TextMd";
+import Text from "../../styled-components/Text";
 import { marginMd, marginSm, marginLg } from "../../constants/dimentions";
 import { useState } from "react";
 import RadioButton from '../../components/RadioButton';
 import InputWhite from "../../styled-components/InputWhite";
 import styled from "styled-components";
-import ButtonGreen from "../../styled-components/ButtonGreen";
+import Button from "../../styled-components/Button";
 
 const InputBox = styled(InputWhite)`
     border: none;
-    box-shadow: 0px 2px 10px grey;
-    margin: ${marginSm}px 0;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
     text-align: center;
     &:focus {
         border: none;
         outline: none;
+    }
+    &::placeholder {
+        color: black;
     }
 `;
 
@@ -30,55 +31,65 @@ const AddFundsCreditDetail = () => {
     const [cardType, setCardType] = useState(0);
     return (
         <>
-            <TextLg style={{
-                margin: `${marginMd}px 0`
-            }}>Credit card details</TextLg>
+            <Text style={{
+                marginBottom: `36px`
+            }}>Credit card details</Text>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `38px`,
             }}>
                 {cardTypes.map((radio, id) => (
                     <RadioButton key={id} text={radio.text} active={cardType === id} onClick={() => setCardType(id)}></RadioButton>
                 ))}
             </div>
-            <TextMd style={{
+            <Text style={{
                 textAlign: "center",
-            }}>Card number</TextMd>
+                marginBottom: "8px"
+            }}>Card number</Text>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
+                marginBottom: "13px"
             }}>
                 <InputBox placeholder={"4470 xxxxxxxxxx 4321"}/ >
             </div>
-            <TextMd style={{
+            <Text style={{
                 textAlign: "center",
-            }}>Exp. date</TextMd>
+                marginBottom: "14px"
+            }}>Exp. date</Text>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                marginBottom: "16px"
             }}>
                 <InputBox style={{
-                    width: "40%",
+                    width: "63px",
+                    marginRight: "3px"
                 }} placeholder={"01"}/ > / <InputBox style={{
-                    width: "40%",
+                    width: "63px",
+                    marginLeft: "3px"
                 }} placeholder={"2021"}/ >
             </div>
-            <TextMd style={{
+            <Text style={{
                 textAlign: "center",
-            }}>Full name in the card</TextMd>
+                marginBottom: "8px"
+            }}>Full name in the card</Text>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
+                marginBottom: "13px"
             }}>
                 <InputBox placeholder={"Mark Doe"}/ >
             </div>
-            <TextMd style={{
+            <Text style={{
                 textAlign: "center",
-            }}>CVV</TextMd>
+                marginBottom: "8px"
+            }}>CVV</Text>
             <div style={{
                 display: "flex",
                 justifyContent: "center",
+                marginBottom: "32px"
             }}>
                 <InputBox style={{
                     width: "50%"
@@ -89,7 +100,11 @@ const AddFundsCreditDetail = () => {
                 justifyContent: "center",
                 marginTop: `${marginLg}px`,
             }}>
-                <ButtonGreen onClick={() => {}}>Add Card</ButtonGreen>
+                <Button style={{
+                    width: "123px",
+                    height: "45px",
+                    backgroundColor: "#15EA37"
+                }} onClick={() => {}}>Add Card</Button>
             </div>
         </>
     )

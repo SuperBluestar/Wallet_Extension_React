@@ -1,16 +1,14 @@
 import UpIcon from "../components/Icons/Up";
-import TextMd from "../styled-components/TextMd";
-import TextLg from "../styled-components/TextLg";
+import Text from "../styled-components/Text";
 import styled from "styled-components";
-import InputMd from "../styled-components/InputMd";
+import Input from "../styled-components/Input";
 import { borderRadiusSm, paddingLg, marginSm, paddingMd, paddingSm, marginLg, marginMd, topbarHeight } from "../constants/dimentions";
-import ButtonGreen from '../styled-components/ButtonGreen';
-import Button from "../styled-components/Button";
+import Button from '../styled-components/Button';
 import { gray } from '../constants/colors';
 // import ScrollContainer from "react-indiana-drag-scroll";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
-const BillingHighLight = styled(InputMd)`
+const BillingHighLight = styled(Input)`
     border-radius: ${borderRadiusSm}px;
     width: 100%;
     padding: ${paddingMd}px ${paddingSm}px;
@@ -19,13 +17,9 @@ const BillingHighLight = styled(InputMd)`
     text-align: center;
 `;
 
-const TextMdUnderline = styled(TextMd)`
+const TextUnderline = styled(Text)`
     text-decoration: underline;
     cursor: pointer;
-`;
-
-const ButtonGray = styled(Button)`
-    background-color: ${gray};
 `;
 
 const FillKYC = () => {
@@ -44,12 +38,12 @@ const FillKYC = () => {
                 width: "100%",
                 alignItems: "center",
             }}>
-                <TextLg style={{
+                <Text style={{
                     margin: `${marginLg}px 0`
-                }}>Valo.id.logo</TextLg>
-                <TextLg style={{
+                }}>Valo.id.logo</Text>
+                <Text style={{
                     margin: `${marginLg}px 0`
-                }}>Establish your credibility:</TextLg>
+                }}>Establish your credibility:</Text>
             </div>
             <div style={{
                 padding: `${paddingMd}px`,
@@ -62,41 +56,41 @@ const FillKYC = () => {
                     flexDirection: "column",
                     alignItems: "center",
                 }}>
-                    <TextMd style={{
+                    <Text style={{
                         padding: `${paddingLg}px 0`
-                    }}>Fill your KYC</TextMd>
+                    }}>Fill your KYC</Text>
 
-                    <TextMd>Tire 2</TextMd>
+                    <Text>Tire 2</Text>
                     <BillingHighLight placeholder="Full name"/>
                     <BillingHighLight placeholder="Address"/>
                     <BillingHighLight placeholder="Phone"/>
                     <BillingHighLight placeholder="Backup e-mail"/>
-                    <TextMd style={{
+                    <Text style={{
                         margin: `${marginLg}px 0`
-                    }}>Tire 3</TextMd>
-                    <TextMd style={{
+                    }}>Tire 3</Text>
+                    <Text style={{
                         width: "60%",
                         textAlign: "center",
-                    }}>Upload photo of drivers license of passport</TextMd>
-                    <ButtonGray style={{
+                    }}>Upload photo of drivers license of passport</Text>
+                    <Button style={{
                         margin: `${marginSm}px`
                     }}>
                         <UpIcon  />
-                    </ButtonGray>
-                    <TextMd style={{
+                    </Button>
+                    <Text style={{
                         width: "60%",
                         textAlign: "center",
-                    }}>Upload an invoice with your address showing</TextMd>
-                    <ButtonGray style={{
+                    }}>Upload an invoice with your address showing</Text>
+                    <Button style={{
                         margin: `${marginSm}px`
                     }}>
                         <UpIcon  />
-                    </ButtonGray>
-                    <ButtonGreen onClick={() => {}} style={{marginTop:`${marginLg}px`}}>Next</ButtonGreen>
-                    <TextMdUnderline>Later(use only tier 1 KYC)</TextMdUnderline>
-                    <TextMd style={{
+                    </Button>
+                    <Button onClick={() => {}} style={{marginTop:`${marginLg}px`}}>Next</Button>
+                    <TextUnderline>Later(use only tier 1 KYC)</TextUnderline>
+                    <Text style={{
                         margin: `${marginMd}px`
-                    }}>2/2</TextMd>
+                    }}>2/2</Text>
                 </div>
             </div>
         {/* </ScrollContainer> */}

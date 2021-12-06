@@ -2,12 +2,19 @@ import styled from 'styled-components';
 import { inputHeightSm, borderRadiusSm } from "../constants/dimentions";
 import { lightgray } from "../constants/colors";
 
-const InputSm = styled.input`
+const Input = styled.input`
     background-color: ${lightgray};
     border-radius: ${borderRadiusSm}px;
-    margin: auto;
     height: ${inputHeightSm}px;
     border: none;
+    font-size: 12px;
+    &:active, &:focus {
+        outline: none;
+        border: none;
+    }
+    &::placeholder {
+        color: #000000;
+    }
 `;
 
-export default InputSm;
+export default Input;

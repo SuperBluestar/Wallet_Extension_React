@@ -1,10 +1,9 @@
 import Left1 from '../../assets/left1.png';
-import { iconWidth } from "../../constants/dimentions";
 
-export default ({style, ...props}) => (
+export default ({style, width = 9, height = 9, ...props}) => (
     <img style={{
-        width: iconWidth,
-        height: iconWidth,
-        ...style,
+        width: width,
+        height: height,
+        ...style
     }} src={Left1} alt="Left1" {...props}/>
 )

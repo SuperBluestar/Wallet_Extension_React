@@ -1,9 +1,9 @@
-import TextSm from "../styled-components/TextSm";
+import Text from "../styled-components/Text";
 import styled from "styled-components";
 import { marginMd } from "../constants/dimentions";
 
-const Description = styled(TextSm)`
-    margin-bottom: ${marginMd}px;
+const Description = styled(Text)`
+    font-size: 10px;
 `;
 
 export default Description;

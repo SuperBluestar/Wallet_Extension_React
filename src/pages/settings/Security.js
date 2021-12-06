@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { topbarHeight, paddingLg, metamaskInfoVideoWidth, metamaskInfoVideoHeight, borderRadiusSm, paddingSm, marginSm, marginMd, paddingMd } from '../../constants/dimentions';
 import { lightgray } from '../../constants/colors';
 import HightLight from '../../styled-components/HighLight';
-import TextMd from '../../styled-components/TextMd';
+import Text from '../../styled-components/Text';
 import CheckIcon from '../../components/Icons/Check';
-import ButtonGreen from '../../styled-components/ButtonGreen';
+import Button from '../../styled-components/Button';
 import Title from "../../components/Title";
 import Description from "../../components/Description";
 import ComboBox from '../../components/ComboBox';
@@ -17,18 +17,23 @@ const MetamaskInfo = styled(HightLight)`
     width: ${metamaskInfoVideoWidth}px;
     height: ${metamaskInfoVideoHeight}px;
     border-radius: ${borderRadiusSm}px;
+    background-color: #C4C4C4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const SecretRecoveryPhrase = styled(HightLight)`
     width: 100%;
+    height: 26px;
     box-sizing: border-box;
-    background: ${lightgray};
-    border-radius: ${borderRadiusSm}px;
-    padding: ${paddingSm}px;
+    background: #F0F0F0;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    margin-top: ${marginMd}px;
-    margin-bottom: ${marginMd}px;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 47px;
 `;
 
 const Security = () => {
@@ -37,7 +42,7 @@ const Security = () => {
     return (
         <PerfectScrollbar style={{
             height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
-            paddingRight: `${paddingSm}px`
+            // paddingRight: `${paddingSm}px`
         }}>
         {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Title>Protect your wallet</Title>
@@ -45,70 +50,126 @@ const Security = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: `${paddingMd}px`,
-                paddingBottom: `${paddingMd}px`,
+                paddingTop: `14px`,
+                paddingBottom: `13px`,
             }}>
-                <MetamaskInfo>metamask info video</MetamaskInfo>
+                <MetamaskInfo>metamask<br /> info video</MetamaskInfo>
             </div>
-            <Description>protect your wallet by saving your secret recovery phrase in various places like on a piece of paper, password manager and/or the cloud.</Description>
+            <Description>protect your wallet by saving your secret recovery phrase<br /> in various places like on a piece of paper, password manager<br /> and/or the cloud.</Description>
             <SecretRecoveryPhrase>
-                <CheckIcon />
-                <TextMd style={{
+                <CheckIcon width={17} height={17} />
+                <Text style={{
                     marginLeft: `${marginSm}px`,
-                }}>Secret recovery phrase backed up</TextMd>
+                }}>Secret recovery phrase backed up</Text>
             </SecretRecoveryPhrase>
             <div style={{
                 display: "flex",
-                justifyContent: "flex-start",
+                justifyContent: "space-between",
+                marginBottom: "27px",
             }}>
-                <ButtonGreen>Back up again</ButtonGreen>
-                <ButtonGreen>Reveal phrase</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "127px",
+                }}>Back up again</Button>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "127px",
+                }}>Reveal phrase</Button>
             </div>
-            <Title>Password</Title>
-            <Description>Choose a strong password to unlock metamask app on your device If you lose this password, you will need your Secret Recovery Phrase to re-import your wallet.</Description>
+            <Title style={{
+                marginBottom: "9px",
+            }}>Password</Title>
+            <Description style={{
+                marginBottom: "14px",
+            }}>Choose a strong password to unlock metamask app<br /> on your device If you lose this password, you will need<br /> your Secret Recovery Phrase to re-import your wallet.</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
+                marginBottom: "22px",
             }}>
-                <ButtonGreen>Change password</ButtonGreen>
+                <Button style={{
+                    background: "#15EA37",
+                    width: "127px",
+                }}>Change password</Button>
             </div>
-            <Title>Auto-lock</Title>
-            <Description>Choose the amount of time before the application automatically locks</Description>
+            <Title style={{
+                marginBottom: "16px"
+            }}>Auto-lock</Title>
+            <Description style={{
+                marginBottom: "10px"
+            }}>Choose the amount of time before the application automatically locks</Description>
             <ComboBox 
                 list={[{text: "30 seconds"},{text: "1 minute"},{text: "2 minute"},{text: "5 minute"},]}
                 onChange={() => {}}
             />
-            <Title>Show private key for “Name of the account here”</Title>
-            <Description>Choose the amount of time before the application automatically locks</Description>
+            <Title style={{
+                marginTop: "32px",
+                marginBottom: "15px",
+            }}>Show private key for “Name of the account here”</Title>
+            <Description style={{
+                marginBottom: "12px"
+            }}>Choose the amount of time before the<br /> application automatically locks</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
+                marginBottom: '22px'
             }}>
-                <ButtonGreen>Show private key</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>Show private key</Button>
             </div>
-            <Title>Clear privacy data</Title>
-            <Description>Clear privacy data so all websites must request access to view account information again.</Description>
+            <Title style={{
+                marginBottom: "15px"
+            }}>Clear privacy data</Title>
+            <Description style={{
+                marginBottom: "12px"
+            }}>Clear privacy data so all websites must request<br /> access to view account information again.</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
+                marginBottom: "19px"
             }}>
-                <ButtonGreen>Clear privacy data</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>Clear privacy data</Button>
             </div>
-            <Title>Clear browser history</Title>
-            <Description>Clear your entire browser history</Description>
+            <Title style={{
+                marginBottom: "21px"
+            }}>Clear browser history</Title>
+            <Description style={{
+                marginBottom: "18px"
+            }}>Clear your entire browser history</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
+                marginBottom: "22px"
             }}>
-                <ButtonGreen>Clear browser history</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>Clear browser history</Button>
             </div>
-            <Title>Clear browser cookies</Title>
-            <Description>Clear your entire browser’s cookies</Description>
+            <Title style={{
+                marginBottom: "21px"
+            }}>Clear browser cookies</Title>
+            <Description style={{
+                marginBottom: "18px"
+            }}>Clear your entire browser’s cookies</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
+                marginBottom: "27px"
             }}>
-                <ButtonGreen>Clear browser cookies</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>Clear browser cookies</Button>
             </div>
             <div style={{
                 display: "flex",
@@ -119,7 +180,9 @@ const Security = () => {
                 <Title>Privacy mode</Title>
                 <Switch on={privacyMode} onClick={() => setPrivacyMode(oldVal => !oldVal)}></Switch>
             </div>
-            <Description>websites must request access to view your account information.</Description>
+            <Description style={{
+                marginBottom: "23px"
+            }}>websites must request access to view<br /> your account information.</Description>
             <div style={{
                 display: "flex",
                 marginBottom: `${marginMd}px`,
@@ -129,7 +192,9 @@ const Security = () => {
                 <Title>Get incoming transactions</Title>
                 <Switch on={incomingTransactoin} onClick={() => setIncomingTransactoin(oldVal => !oldVal)}></Switch>
             </div>
-            <Description>Third party api is used to show your incoming transactions in the history. Turn off if you don’t want us to pull data from those services</Description>
+            <Description style={{
+                marginBottom: "12px"
+            }}>Third party api is used to show your<br /> incoming transactions in the history.<br /> Turn off if you don’t want us to pull data<br /> from those services</Description>
         {/* </ScrollContainer> */}
         </PerfectScrollbar>
     )

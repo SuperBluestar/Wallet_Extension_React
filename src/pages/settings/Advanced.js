@@ -1,8 +1,8 @@
 import { useState } from "react";
 // import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
-import ButtonGreen from '../../styled-components/ButtonGreen';
-import TextMd from '../../styled-components/TextMd';
+import Button from '../../styled-components/Button';
+import Text from '../../styled-components/Text';
 import { topbarHeight, paddingLg } from "../../constants/dimentions";
 import Title from "../../components/Title";
 import Description from "../../components/Description";
@@ -14,14 +14,14 @@ import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const IpfsGateway = styled(HightLight)`
     width: 100%;
+    height: 26px;
     box-sizing: border-box;
     background: ${lightgray};
     border-radius: ${borderRadiusSm}px;
-    padding: ${paddingSm}px;
     display: flex;
-    justify-content: center;
-    margin-top: ${marginMd}px;
-    margin-bottom: ${marginMd}px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 14px;
 `;
 
 const Advanced = () => {
@@ -31,57 +31,81 @@ const Advanced = () => {
     return (
         <PerfectScrollbar style={{
             height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
-            paddingRight: `${paddingSm}px`
         }}>
         {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
-            <Title>Reset account</Title>
-            <Description>protect your wallet by saving your secret recovery phrase in various places like on a piece of paper, password manager and/or the cloud.</Description>
+            <Title style={{
+                marginBottom: "9px"
+            }}>Reset account</Title>
+            <Description style={{
+                marginBottom: "11px"
+            }}>protect your wallet by saving your secret recovery phrase<br /> in various places like on a piece of paper, password manager<br /> and/or the cloud.</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
+                marginBottom: "35px"
             }}>
-                <ButtonGreen>reset account</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>reset account</Button>
             </div>
-            <Title>IPFS Gateway</Title>
-            <Description>protect your wallet by saving your secret recovery phrase in various places like on a piece of paper, password manager and/or the cloud.</Description>
-            <IpfsGateway>
-                <TextMd>https://cloudflare-ipfs.com/ipfs</TextMd>
+            <Title style={{
+                marginBottom: "9px"
+            }}>IPFS Gateway</Title>
+            <Description style={{
+                marginBottom: "13px"
+            }}>protect your wallet by saving your secret recovery phrase<br /> in various places like on a piece of paper, password manager<br /> and/or the cloud.</Description>
+            <IpfsGateway style={{
+                marginBottom: "24px"
+            }}>
+                <Text>https://cloudflare-ipfs.com/ipfs</Text>
             </IpfsGateway>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `9px`,
                 alignItems: "center",
                 justifyContent: "space-between",
             }}>
                 <Title>Show hex data</Title>
                 <Switch on={showHexData} onClick={() => setShowHexData(oldVal => !oldVal)}></Switch>
             </div>
-            <Description>protect your wallet by saving your secret recovery phrase in various places like on a piece of paper, password manager and/or the cloud.</Description>
+            <Description style={{
+                marginBottom: "21px"
+            }}>protect your wallet by saving your secret recovery phrase<br /> in various places like on a piece of paper, password manager<br /> and/or the cloud.</Description>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `9px`,
                 alignItems: "center",
                 justifyContent: "space-between",
             }}>
                 <Title>Customise transaction nonce</Title>
                 <Switch on={customizeNonce} onClick={() => setCustomizeNonce(oldVal => !oldVal)}></Switch>
             </div>
-            <Description>protect your wallet by saving your secret recovery phrase in various places like on a piece of paper, password manager and/or the cloud.</Description>
+            <Description style={{
+                marginBottom: "26px"
+            }}>protect your wallet by saving your secret recovery phrase<br /> in various places like on a piece of paper, password manager<br /> and/or the cloud.</Description>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `21px`,
                 alignItems: "center",
                 justifyContent: "space-between",
             }}>
                 <Title>State logs</Title>
                 <Switch on={logs} onClick={() => setLogs(oldVal => !oldVal)}></Switch>
             </div>
-            <Description>This will help metamask to debug an issue you might encounter.</Description>
+            <Description style={{
+                marginBottom: "23px"
+            }}>This will help metamask to debug an issue you might encounter.</Description>
             <div style={{
                 display: "flex",
                 justifyContent: "flex-start",
             }}>
-                <ButtonGreen>Download state logs</ButtonGreen>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "157px",
+                    height: "39px"
+                }}>Download state logs</Button>
             </div>
         {/* </ScrollContainer> */}
         </PerfectScrollbar>

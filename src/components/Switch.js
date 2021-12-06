@@ -10,7 +10,7 @@ const Container = styled.div`
     align-items: center;
     background-color: ${gray};
     & > div {
-        border: 1px solid ${black};
+        border: 1px solid black;
         width: ${switchHeight - 2}px;
         height: ${switchHeight - 2}px;
         border-radius: 1000px;
@@ -19,12 +19,12 @@ const Container = styled.div`
         transition: all 0.5s;
     }
     &.open {
-        background-color: ${green};
+        background-color: #15EA37;
     }
     &.open > div {
         margin-left: calc(100% - 14px);
         border: none;
-        background-color: ${gray};
+        background-color: #4BB78F;
     }
 `;
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-import ButtonGreen from '../../styled-components/ButtonGreen';
+import Button from '../../styled-components/Button';
 import Spinner from '../../styled-components/Spinner';
 
 import { Logo, Title, FullInput, Center, TextUnderline } from "./Common";
@@ -13,17 +13,23 @@ const Verify = () => {
             <Logo>Valo.id logo</Logo>
             { loading ? <Spinner /> :
             <>
-                <Title>Sign In</Title>
+                <Title className="font-roboto-400">Sign In</Title>
                 <FullInput placeholder="Password or other" />
-                <Title>Or</Title>
-                <Center>
-                    <ButtonGreen>Verify with app</ButtonGreen>
-                </Center>
-                <Center>
+                <Title className="font-roboto-400" style={{
+                    marginTop: "18px",
+                    marginBottom: "18px",
+                }}>Or</Title>
+                <Button style={{
+                    backgroundColor: "#15EA37",
+                    width: "111px",
+                }}>Verify with app</Button>
+                <Center style={{
+                    paddingTop: "50px",
+                }}>
                     <Link to="/verify">
                         <TextUnderline style={{
-                            marginTop: "50px",
-                            marginBottom: "50px",
+                            fontSize: "12px",
+                            color: "#000000",
                         }}>Register</TextUnderline>
                     </Link>
                 </Center>

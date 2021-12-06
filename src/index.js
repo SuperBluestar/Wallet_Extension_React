@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import AppEX from './AppEX';
 import reportWebVitals from './reportWebVitals';
 import 'react-perfect-scrollbar/dist/css/styles.css';
+import './index.css'
 
 ReactDOM.render(
   <React.StrictMode>

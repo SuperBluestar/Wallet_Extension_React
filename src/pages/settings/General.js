@@ -5,7 +5,7 @@ import RadioButton from '../../components/RadioButton';
 import Switch from '../../components/Switch';
 import ComboBox from '../../components/ComboBox';
 import { useState } from "react";
-import TextMd from "../../styled-components/TextMd";
+import Text from "../../styled-components/Text";
 import Title from "../../components/Title";
 import Description from "../../components/Description";
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -25,14 +25,29 @@ const General = () => {
             paddingRight: `${paddingSm}px`
         }}>
         {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
-            <Title>Currency conversion</Title>
-            <Description>Display FIAT values in using a specific currency throughout the application</Description>
+            <Text style={{
+                fontWeight: 700,
+                fontSize: "14px",
+                marginBottom: "11px",
+            }}>Currency conversion</Text>
+            <Text style={{
+                fontSize: "10px",
+                marginBottom: "7px"
+            }}>Display FIAT values in using a specific currency<br /> throughout the application</Text>
             <ComboBox 
                 list={[{text: "EUR - EURO"},{text: "USD - DOLLAR"},]}
                 onChange={() => {}}
             />
-            <Title>Primary currency</Title>
-            <Description>Select native to prioritize displaying values in the native currency of the chain (e.g. ETH). Select Fiat to prioritize displaying values in your selected fiat currency.</Description>
+            <Text style={{
+                marginTop: "8px",
+                fontWeight: 700,
+                fontSize: "14px",
+                marginBottom: "4px",
+            }}>Primary currency</Text>
+            <Text style={{
+                fontSize: '10px',
+                marginBottom: "10px",
+            }}>Select native to prioritize displaying values in the<br /> native currency of the chain (e.g. ETH).<br /> Select Fiat to prioritize displaying values in<br /> your selected fiat currency.</Text>
             <div style={{
                 display: "flex",
                 marginBottom: `${marginMd}px`,
@@ -41,29 +56,55 @@ const General = () => {
                     <RadioButton key={id} text={radio.text} active={activeRadio === id} onClick={() => setActiveRadio(id)}></RadioButton>
                 ))}
             </div>
-            <Title>Current language</Title>
-            <Description>Translate the application to a different supported laguage</Description>
+            <Text style={{
+                fontWeight: 700,
+                fontSize: "14px",
+                marginBottom: "11px",
+            }}>Current language</Text>
+            <Text style={{
+                fontSize: "10px",
+                marginBottom: "9px",
+            }}>Translate the application to a different supported laguage</Text>
             <ComboBox 
                 list={[{text: "English"},{text: "German"},]}
                 onChange={() => {}}
             />
-            <Title>Search Engine</Title>
-            <Description>Change the default search engine used when entering search terms in the URL bar.</Description>
+            <Text style={{
+                marginTop: "20px",
+                fontWeight: 700,
+                fontSize: "14px",
+                marginBottom: "11px",
+            }}>Search Engine</Text>
+            <Text style={{
+                fontSize: "10px",
+                marginBottom: "13px",
+            }}>Change the default search engine used when<br /> entering search terms in the URL bar.</Text>
             <ComboBox 
                 list={[{text: "DuckDuckGo"},{text: "Google"},]}
                 onChange={() => {}}
             />
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginTop: "15px",
                 alignItems: "center",
                 justifyContent: "space-between",
+                marginBottom: "5px",
             }}>
-                <Title>Hide tokens without balance</Title>
+                <Text style={{
+                    fontWeight: 700,
+                    fontSize: "14px",
+                }}>Hide tokens without balance</Text>
                 <Switch on={hideTokensWithoutBalance} onClick={() => setHideTokensWithoutBalance(oldVal => !oldVal)}></Switch>
             </div>
-            <Description>prevents tokens with no balance from displaying in your token listing</Description>
-            <Title>Account identicon</Title>
+            <Text style={{
+                fontSize: "10px",
+                marginBottom: "13px",
+            }}>prevents tokens with no balance from displaying in your token listing</Text>
+            <Text style={{
+                fontWeight: 700,
+                fontSize: "14px",
+                marginBottom: "11px",
+            }}>Account identicon</Text>
             <div style={{
                 display: "flex",
             }}>
@@ -88,9 +129,9 @@ const General = () => {
                             border: `1px solid ${black}`,
                         }}></div>
                     </div>
-                    <TextMd style={{
+                    <Text style={{
                         marginLeft: `${marginSm}px`
-                    }}>Jazzicons</TextMd>
+                    }}>Jazzicons</Text>
                 </div>
                 <div style={{
                     display: "flex",
@@ -113,9 +154,9 @@ const General = () => {
                             border: `1px solid ${black}`,
                         }}></div>
                     </div>
-                    <TextMd style={{
+                    <Text style={{
                         marginLeft: `${marginSm}px`
-                    }}>blockies</TextMd>
+                    }}>blockies</Text>
                 </div>
             </div>
         {/* </ScrollContainer> */}

@@ -1,10 +1,9 @@
 import SwapDown from '../../assets/swap-down.png';
-import { iconWidth } from "../../constants/dimentions";
 
-export default ({style, ...props}) => (
+export default ({style, width = 9, height = 9, ...props}) => (
     <img style={{
-        width: iconWidth,
-        height: iconWidth,
+        width: width,
+        height: height,
         ...style
     }} src={SwapDown} alt="SwapDown" {...props}/>
 )

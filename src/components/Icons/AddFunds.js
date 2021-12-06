@@ -1,9 +1,9 @@
-import Settings from '../../assets/settings.png';
+import AddFunds from '../../assets/addfunds.png';
 
 export default ({style, width = 9, height = 9, ...props}) => (
     <img style={{
         width: width,
         height: height,
         ...style
-    }} src={Settings} alt="Settings"/>
+    }} src={AddFunds} alt="AddFunds" {...props}/>
 )

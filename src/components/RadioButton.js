@@ -1,6 +1,6 @@
 import { iconWidth, marginSm } from "../constants/dimentions"
 import { black, green } from "../constants/colors";
-import TextMd from "../styled-components/TextMd";
+import Text from "../styled-components/Text";
 
 const RadioButton = ({ text = "", active = false, style, ...props}) => {
     return (<div style={{
@@ -30,10 +30,10 @@ const RadioButton = ({ text = "", active = false, style, ...props}) => {
             }}></div> : 
             <></>}
         </div>
-        <TextMd style={{
+        <Text style={{
             marginLeft: `${marginSm}px`,
             minWidth: "80px",
-        }}>{text}</TextMd>
+        }}>{text}</Text>
     </div>)
 }
 

@@ -27,7 +27,7 @@ const SelectedGroup = styled.div`
         padding: 6px 16px;
         box-sizing: border-box;
         width: 100%;
-        height: 26px;
+        height: 44px;
         & img {
             transition: all 0.5s;
         }
@@ -73,7 +73,7 @@ const ComboBox = ({list = defaultList, onChange = () => {}, selected = 0, ...pro
         <SelectedGroup className={`${open ? "open" : ""}`} onClick={() => setOpen(oldVal => !oldVal)} {...props}>
             <Selected>
                 <Text>{list[selectedItem].text}</Text>
-                <Down />
+                <Down width={"13px"} height={"8px"}/>
             </Selected>
             <ListGroup>
             {list.map((item, id) => (

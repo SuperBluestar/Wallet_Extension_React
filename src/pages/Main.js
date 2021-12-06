@@ -4,13 +4,12 @@ import styled from 'styled-components';
 import { white, gray } from '../constants/colors';
 import { circleBtnSize, tabItemWidth, tabItemBorderRadius, paddingLg, marginSm, tabItemHeight, footerHeight, tokenItemHeight, votingItemHeight, borderRadiusSm, marginMd, paddingSm, paddingMd } from '../constants/dimentions';
 import HighLight from "../styled-components/HighLight";
-import TextSm from "../styled-components/TextSm";
-import ButtonGray from "../styled-components/ButtonGray";
+import Text from "../styled-components/Text";
+import Button from "../styled-components/Button";
 import ReceiveIcon from "../components/Icons/Receive";
 import SendIcon from "../components/Icons/Send";
 import NFTFolder from "../components/NFTFolder";
 import IssuerFolder from "../components/IssuerFolder";
-import TextMd from '../styled-components/TextMd';
 // import ScrollContainer from 'react-indiana-drag-scroll';
 import RightIcon from '../components/Icons/Right';
 import TrashIcon from '../components/Icons/Trash';
@@ -27,8 +26,7 @@ const Board = styled.div`
     background-color: ${white};
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 11px;
+    align-items: center;
 `;
 
 const Address = styled(HighLight)`
@@ -36,21 +34,26 @@ const Address = styled(HighLight)`
     margin: 9px auto;
 `;
 
-const TotalBalance = styled(TextSm)`
+const TotalBalance = styled(Text)`
     margin: 0px auto;
 `;
 
 const BoardButtonGroup = styled.div`
     display: flex;
-    justify-content: space-evenly;
-    margin: 21px 0;
+    justify-content: center;
+    margin-top: 34px;
+    margin-bottom: 27px;
 `;
 
 const BoradButton = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     & ${HighLight} {
+        background-color: #C4C4C4;
         border-radius: 1000px;
-        width: ${circleBtnSize}px;
-        height: ${circleBtnSize}px;
+        width: 37px;
+        height: 37px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -61,7 +64,7 @@ const TabMenu = styled.div`
     border-top-left-radius: ${tabItemBorderRadius}px;
     border-top-right-radius: ${tabItemBorderRadius}px;
     box-shadow: 0px -2px 6px grey;
-    background-color: ${gray};
+    background-color: #F0F0F0;
     &.active {
         background-color: ${white};
     }
@@ -83,11 +86,13 @@ const Tabs = styled.div`
 `;
 
 const TabPanel = styled.div`
-    padding: ${paddingLg}px;
+    padding: 21px 27px 28px 27px;
     margin-top: -${marginSm}px;
     background: ${white};
-    height: 100%;
+    height: 280px;
     z-index: 20;
+    box-sizing: border-box;
+    overflow: hidden;
 `;
 
 const MarketPlaceNFTs = styled.div`
@@ -103,7 +108,7 @@ const MarketPlaceIssuers = styled.div`
 `;
 
 const Footer = styled.div`
-    height: ${footerHeight}px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,13 +157,15 @@ const Main = () => {
                 paddingBottom: `${paddingSm}px`
             }}>
             {/* <ScrollContainer className="scroll-container" vertical={true} horizontal={true} hideScrollbars={true}> */}
-                <TextMd>Marketplace</TextMd>
+                <Text style={{
+                    marginBottom: "6px"
+                }}>Marketplace</Text>
                 <MarketPlaceNFTs>
                     {[0,0,0,0,0].map((nft, id) => {
                         return <NFTFolder key={id} />
                     })}
                 </MarketPlaceNFTs>
-                <TextMd>Issuer</TextMd>
+                <Text>Issuer</Text>
                 <MarketPlaceIssuers>
                     {[0,0,0,0,0].map((issuer, id) => {
                         return <IssuerFolder key={id} />
@@ -167,9 +174,10 @@ const Main = () => {
             {/* </ScrollContainer> */}
             </PerfectScrollbar>
             <Footer>
-                <ButtonGray style={{
-                    width: "80%",
-                }}>Add NFTs</ButtonGray>
+                <Button style={{
+                    width: "207px",
+                    height: "45px",
+                }}>Add NFTs</Button>
             </Footer>
         </TabPanel>
     },{
@@ -182,7 +190,14 @@ const Main = () => {
             {/* <ScrollContainer style={{height: "200px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0,0].map((issuer, id) => {
                     return (<TokenItem key={id} >
-                        <HighLight></HighLight>
+                        <HighLight style={{
+                            backgroundColor: "#c4c4c4",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            fontSize: "9px",
+                            textAlign: "center"
+                        }}>{id === 0 ? <>Token<br />logo</> : ""}</HighLight>
                         <div style={{
                             marginLeft: marginSm,
                             flexGrow: 1,
@@ -190,23 +205,24 @@ const Main = () => {
                             flexDirection: "column",
                             justifyContent: "space-evenly"
                         }}>
-                            <TextMd>Balance</TextMd>
-                            <TextMd>Amount of tokens</TextMd>
+                            <Text>Balance</Text>
+                            <Text>Amount of tokens</Text>
                         </div>
                         <div style={{
                             display: "flex",
                             alignItems: "center",
                         }}>
-                            <RightIcon></RightIcon>
+                            <RightIcon width={16} height={27}></RightIcon>
                         </div>
                     </TokenItem>)
                 })}
             {/* </ScrollContainer> */}
             </PerfectScrollbar>
             <Footer>
-                <ButtonGray style={{
-                    width: "80%",
-                }}>Add Token</ButtonGray>
+                <Button style={{
+                    width: "207px",
+                    height: "45px",
+                }}>Add Token</Button>
             </Footer>
         </TabPanel>
     },{
@@ -214,13 +230,18 @@ const Main = () => {
         tabContent: <TabPanel>
             <PerfectScrollbar style={{
                 height: "260px",
-                paddingRight: `${paddingMd}px`
             }}>
             {/* <ScrollContainer style={{height: "260px"}} className="scroll-container" vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0].map((vote, id) => {
                     return (
                         <Link to={`/main/vote/${id}`} key={id}>
-                            <VotingItem className={id === 7 ? "last-item" : ""}>Vote for new COB for nationalist pary</VotingItem>
+                            <VotingItem style={{
+                                backgroundColor: "#c4c4c4",
+                                display: "flex",
+                                alignItems: "flex-end",
+                                padding: "15px 17px",
+                                boxSizing: "border-box",
+                            }} className={id === 7 ? "last-item" : ""}>Vote for new COB for nationalist pary</VotingItem>
                         </Link>
                     )
                 })}
@@ -228,24 +249,32 @@ const Main = () => {
             </PerfectScrollbar>
         </TabPanel>
     },{
-        tabText: "Connected sites", 
+        tabText: <>Connected<br />sites</>, 
         tabContent: <TabPanel>
             <div style={{
                 display: "flex",
-                justifyContent: "space-around",
-                marginBottom: marginSm,
+                justifyContent: "space-between",
             }}>
-                <TextMd>SiteInfo</TextMd>
-                <TextMd>Disconnect</TextMd>
+                <Text>SiteInfo</Text>
+                <Text>Disconnect</Text>
             </div>
             <PerfectScrollbar style={{
                 height: "260px",
-                paddingRight: `${paddingMd}px`
+                paddingRight: `11px`
             }}>
             {/* <ScrollContainer style={{height: "260px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0,0].map((issuer, id) => {
                     return (<SiteItem key={id} >
-                        <HighLight></HighLight>
+                        <HighLight style={{
+                            backgroundColor: "#c4c4c4",
+                            width: "37px",
+                            height: "37px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            fontSize: "9px",
+                            textAlign: "center"
+                        }}>site <br />favicon</HighLight>
                         <div style={{
                             marginLeft: marginSm,
                             flexGrow: 1,
@@ -253,14 +282,14 @@ const Main = () => {
                             flexDirection: "column",
                             justifyContent: "space-evenly"
                         }}>
-                            <TextMd>Site Name</TextMd>
-                            <TextMd>Site Address</TextMd>
+                            <Text>Site Name</Text>
+                            <Text>Site Address</Text>
                         </div>
                         <div style={{
                             display: "flex",
                             alignItems: "center",
                         }}>
-                            <TrashIcon></TrashIcon>
+                            <TrashIcon width={19} height={20}></TrashIcon>
                         </div>
                     </SiteItem>)
                 })}
@@ -271,24 +300,43 @@ const Main = () => {
     return (
         <MainBoard>
             <Board>
-                <Address>Address</Address>
-                <TotalBalance>Total Balance</TotalBalance>
+                <Button style={{
+                    backgroundColor: "#E4E4E4",
+                    width: "140px",
+                    height: "31px",
+                    marginTop: "22px",
+                }}>Address</Button>
+                <Text style={{
+                    marginTop: "9px"
+                }}>Total Balance</Text>
                 <BoardButtonGroup>
-                    <BoradButton onClick={() => navigate("/main/receive")}>
-                        <HighLight>
-                            <ReceiveIcon />
+                    <BoradButton style={{
+                        marginRight: "20px"
+                    }} onClick={() => navigate("/main/receive")}>
+                        <HighLight style={{
+                            marginBottom: "4px"
+                        }}>
+                            <ReceiveIcon width={15} height={19} />
                         </HighLight>
                         Receive
                     </BoradButton>
-                    <BoradButton onClick={() => navigate("/main/send")}>
-                        <HighLight>
-                            <SendIcon />
+                    <BoradButton style={{
+                        marginRight: "20px"
+                    }} onClick={() => navigate("/main/send")}>
+                        <HighLight style={{
+                            marginBottom: "4px"
+                        }}>
+                            <SendIcon width={19} height={19} />
                         </HighLight>
                         Send
                     </BoradButton>
-                    <BoradButton onClick={() => navigate("/main/swap")}>
-                        <HighLight>
-                            <SwapIcon />
+                    <BoradButton style={{
+                        marginRight: "20px"
+                    }} onClick={() => navigate("/main/swap")}>
+                        <HighLight style={{
+                            marginBottom: "4px"
+                        }}>
+                            <SwapIcon width={19} height={19} />
                         </HighLight>
                         Swap
                     </BoradButton>
@@ -299,7 +347,11 @@ const Main = () => {
                 <TabMenu onClick={() => setActiveTab(id)} key={id} className={activeTab === id ? "active" : ""} style={{
                     zIndex: activeTab === id ? 11 : 10 - id
                 }}>
-                    <TextMd>{menu.tabText}</TextMd>
+                    <Text style={{
+                        fontSize: id === 3 ? "8px" : "12px",
+                        lineHeight: id === 3 ? "9px" : "14px",
+                        textAlign: "center"
+                    }}>{menu.tabText}</Text>
                 </TabMenu>
             ))}
             </Tabs>

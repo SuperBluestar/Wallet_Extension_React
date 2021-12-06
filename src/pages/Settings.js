@@ -1,7 +1,7 @@
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { topbarHeight, paddingLg, paddingSm } from '../constants/dimentions';
 import LeftIcon from "../components/Icons/Left";
-import TextLg from '../styled-components/TextLg';
+import Text from '../styled-components/Text';
 
 const Settings = () => {
     const location = useLocation();
@@ -18,13 +18,16 @@ const Settings = () => {
                 display: "flex",
                 cursor: "pointer",
                 alignItems: "center",
-                height: `39px`,
+                marginBottom: "21px"
             }} onClick={() => navigate(-1)}>
-                <LeftIcon />
-                <TextLg style={{
+                <LeftIcon width={16} height={27}/>
+                <Text style={{
                     paddingLeft: paddingSm,
                     textTransform: "capitalize",
-                }}>{ location.pathname.slice("/main/settings/".length) }</TextLg>
+                    fontSize: "14px",
+                    lineHeight: "16px",
+                    fontWeight: "bold",
+                }}>{ location.pathname.slice("/main/settings/".length).replace('-',' ') }</Text>
             </div>
             <Outlet />
         </div>

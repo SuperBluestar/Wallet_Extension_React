@@ -1,11 +1,10 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { slide as Menu } from "react-burger-menu";
-import TextLg from "../styled-components/TextLg";
-import TextSm from "../styled-components/TextSm";
-import ButtonGray from "../styled-components/ButtonGray";
+import Text from "../styled-components/Text";
+import Button from "../styled-components/Button";
 import SidemenuOpenIcon from "../components/SidemenuOpenIcon";
-import TextMd from "../styled-components/TextMd";
 import SendIcon from "../components/Icons/Send";
+import AddFundsIcon from "../components/Icons/AddFunds";
 import ExpandIcon from "../components/Icons/Expand";
 import ConnectIcon from "../components/Icons/Connect";
 import HistoryIcon from "../components/Icons/History";
@@ -56,15 +55,15 @@ const Topbar = styled.div`
 
 const MenuTopboard = styled.div`
     background-color: ${white};
-    padding: ${paddingMd}px;
+    padding: 32px 25px 27px 25px;
 `;
 const MenuContent = styled.div`
     background-color: ${lightgray};
-    padding: ${paddingMd}px 0;
+    padding: 20px;
     height: 100%;
 `;
 
-const SidebarButton = styled(ButtonGray)`
+const SidebarButton = styled(Button)`
     width: calc(50% - 20px);
     margin: 10px;
     cursor: pointer;
@@ -79,18 +78,16 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-    margin-top: ${marginSm}px;
-    margin-bottom: ${marginSm}px;
     display: flex;
     align-items: center;
-    padding-left: ${paddingMd}px;
     cursor: pointer;
     &.active {
         background: lightgray;
-        padding: ${paddingMd}px ${paddingMd}px;
         border-top-right-radius: 1000px;
         border-bottom-right-radius: 1000px;
-        margin-right: ${marginLg}px;
+        height: 31px;
+        margin-left: -100px;
+        padding-left: 100px;
     }
 `;
 
@@ -162,88 +159,131 @@ const MainLayout = () => {
                 width={'287px'} 
             >
                 <MenuTopboard>
-                    <TextLg style={{
-                        marginTop: marginLg,
-                        marginBottom: marginLg
+                    <Text className="font-roboto" style={{
+                        fontSize: "18px",
+                        marginBottom: "40px",
                     }} onClick={() => {
                         navigateClose("/main")
-                    }}>VALO.id</TextLg>
-                    <TextLg>Acconut name</TextLg>
-                    <TextSm>Total Balance</TextSm>
-                    <TextSm>Address</TextSm>
+                    }}>VALO.id</Text>
+                    <Text className="font-roboto" style={{
+                        fontSize: "18px",
+                        marginLeft: "3px",
+                        marginBottom: "10px",
+                    }}>Acconut name</Text>
+                    <Text className="font-roboto" style={{
+                        fontSize: "12px",
+                        marginLeft: "3px",
+                        marginBottom: "6px",
+                    }}>Total Balance</Text>
+                    <Text className="font-roboto" style={{
+                        fontSize: "12px",
+                        marginLeft: "3px",
+                        marginBottom: "18px",
+                    }}>Address</Text>
                     <div style={{display: "flex"}}>
-                        <SidebarButton>
-                            <SendIcon></SendIcon>
-                            <TextMd>Send</TextMd>
-                        </SidebarButton>
-                        <SidebarButton onClick={() => {
+                        <Button style={{
+                            backgroundColor: "#C4C4C4",
+                            width: "114px",
+                            height: "31px",
+                            marginRight: "10px"
+                        }}>
+                            <SendIcon width={11} height={14} style={{
+                                marginRight: "7px"
+                            }}></SendIcon>
+                            <Text>Send</Text>
+                        </Button>
+                        <Button style={{
+                            backgroundColor: "#C4C4C4",
+                            width: "114px",
+                            height: "31px"
+                        }} onClick={() => {
                             navigateClose('/main/add-funds');
                         }}>
-                            <SendIcon></SendIcon>
-                            <TextMd>Add funds</TextMd>
-                        </SidebarButton>
+                            <AddFundsIcon width={11} height={14} style={{
+                                marginRight: "7px"
+                            }}></AddFundsIcon>
+                            <Text>Add funds</Text>
+                        </Button>
                     </div>
                 </MenuTopboard>
                 <MenuContent>
                     <List>
-                        <Item>
-                            <ExpandIcon />
-                            <TextMd style={{
-                                marginLeft: 10
-                            }}>Expand View</TextMd>
+                        <Item style={{
+                            marginBottom: "18px"
+                        }}>
+                            <ExpandIcon width={18} height={18}/>
+                            <Text style={{
+                                marginLeft: "16px"
+                            }}>Expand View</Text>
                         </Item>
-                        <Item>
-                            <ConnectIcon />
-                            <TextMd style={{
-                                marginLeft: 10
-                            }}>Connected Sites</TextMd>
+                        <Item style={{
+                            marginBottom: "18px"
+                        }}>
+                            <ConnectIcon width={18} height={18}/>
+                            <Text style={{
+                                marginLeft: "16px"
+                            }}>Connected Sites</Text>
                         </Item>
-                        <Item className="active" onClick={() => navigateClose("/main/transaction-history")}>
-                            <HistoryIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "18px"
+                        }} className="active" onClick={() => navigateClose("/main/transaction-history")}>
+                            <HistoryIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
-                            }}>Transaction History</TextMd>
+                            }}>Transaction History</Text>
                         </Item>
-                        <Item>
-                            <ShareIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "10px"
+                        }}>
+                            <ShareIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
-                            }}>Share my Public Address</TextMd>
+                            }}>Share my Public Address</Text>
                         </Item>
-                        <Item>
-                            <ScanIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "10px"
+                        }}>
+                            <ScanIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
-                            }}>View on Etherscan</TextMd>
+                            }}>View on Etherscan</Text>
                         </Item>
-                        <Item onClick={() => navigateClose("/main/fill-kyc")}>
-                            <FillKYCIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "10px"
+                        }} onClick={() => navigateClose("/main/fill-kyc")}>
+                            <FillKYCIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
-                            }}>Fill your KYC</TextMd>
+                            }}>Fill your KYC</Text>
                         </Item>
-                        <Item>
-                            <SettingsIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "10px"
+                        }}>
+                            <SettingsIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
                             }} onClick={() => {
                                 navigateClose("/main/settings");
-                            }}>Settings</TextMd>
+                            }}>Settings</Text>
                         </Item>
-                        <Item>
-                            <HelpIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "10px"
+                        }}>
+                            <HelpIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
-                            }}>Help</TextMd>
+                            }}>Help</Text>
                         </Item>
-                        <Item>
-                            <RequestIcon />
-                            <TextMd style={{
+                        <Item style={{
+                            marginBottom: "10px"
+                        }}>
+                            <RequestIcon width={18} height={18}/>
+                            <Text style={{
                                 marginLeft: 10
                             }} onClick={() => { 
                                 setOpenError(true);
                                 closeMenu();
-                            }}>Request a feature</TextMd>
+                            }}>Request a feature</Text>
                         </Item>
                     </List>
                 </MenuContent>
@@ -255,12 +295,21 @@ const MainLayout = () => {
                 <div style={{
                     padding: paddingSm
                 }}>
-                    <TextLg style={{textAlign: "right"}}>Account Name</TextLg>
-                    <div style={{display: "flex", cursor: "pointer"}} onClick={() => setNetworkModal(true)}>
+                    <Text style={{
+                        textAlign: "right",
+                        fontSize: "18px",
+                    }}>Account name</Text>
+                    <div style={{
+                        display: "flex", 
+                        cursor: "pointer",
+                        alignItems: "center"
+                    }} onClick={() => setNetworkModal(true)}>
                         <SignalImg style={{
-                            marginRight: `${marginSm}px`
+                            marginRight: `8px`
                         }} signal={true}></SignalImg>
-                        <TextSm>Current network (Ethereum mainnet etc)</TextSm>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>Current network (Ethereum mainnet etc)</Text>
                     </div>
                 </div>
             </Topbar>
@@ -292,7 +341,7 @@ const MainLayout = () => {
                         <SignalImg style={{
                             marginRight: `${marginSm}px`
                         }} signal={false}></SignalImg>
-                        <TextMd>{network.name}</TextMd>
+                        <Text>{network.name}</Text>
                     </SingleNetwork>
                 ))}
                 
@@ -303,7 +352,7 @@ const MainLayout = () => {
                     <AddIcon style={{
                         marginRight: `${marginSm}px`
                     }}></AddIcon>
-                    <TextMd>Add network</TextMd>
+                    <Text>Add network</Text>
                 </SingleNetwork>
             </ReactModal>
         </>

@@ -5,10 +5,9 @@ import HighLight from "../styled-components/HighLight";
 import SendIcon from "../components/Icons/Send";
 import RefreshCheckIcon from "../components/Icons/RefreshCheck";
 import ReceiveIcon from "../components/Icons/Receive";
-import TextMd from "../styled-components/TextMd";
+import Text from "../styled-components/Text";
 import { borderRadiusSm, marginMd, paddingSm, circleBtnSize, marginSm, paddingLg, paddingMd, topbarHeight, marginLg } from "../constants/dimentions";
 import ReactModal from 'react-modal';
-import TextLg from "../styled-components/TextLg";
 import HigtLight from "../styled-components/HighLight";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
@@ -56,7 +55,7 @@ const BillingHighLight = styled(HigtLight)`
     box-sizing: border-box;
 `;
 
-const TextMdUnderline = styled(TextMd)`
+const TextUnderline = styled(Text)`
     text-decoration: underline;
     cursor: pointer;
 `;
@@ -155,7 +154,7 @@ const TransactionHistory = (props) => {
             height: `calc(100vh - ${topbarHeight}px - ${paddingLg * 2}px)`,
         }} vertical={true} horizontal={false} hideScrollbars={true}> */}
             {transactions.map((transaction, id) => (<SingleTransaction key={id}>
-                <TextMd>{transaction.transactionNumber} - {transaction.timestamp} - {transaction.device}</TextMd>
+                <Text>{transaction.transactionNumber} - {transaction.timestamp} - {transaction.device}</Text>
                 <TransactionDetail>
                     <HighLightCircle style={{
                         cursor: "pointer"
@@ -169,13 +168,13 @@ const TransactionHistory = (props) => {
                         flexDirection: "column",
                         paddingLeft: `${paddingMd}px`,
                     }}>
-                        <TextMd>{transaction.text}</TextMd>
-                        <TextMd>{transaction.status}</TextMd>
+                        <Text>{transaction.text}</Text>
+                        <Text>{transaction.status}</Text>
                     </div>
-                    <TextMd style={{
+                    <Text style={{
                         display: "flex",
                         alignItems: "center"
-                    }}>{transaction.amount}</TextMd>
+                    }}>{transaction.amount}</Text>
                 </TransactionDetail>
             </SingleTransaction>))}
             
@@ -200,56 +199,56 @@ const TransactionHistory = (props) => {
                     }
                 }}
             >
-                <TextLg style={{marginBottom: `${marginLg}px`}}>Smart Contract interaction</TextLg>
+                <Text style={{marginBottom: `${marginLg}px`}}>Smart Contract interaction</Text>
                 
                 <SCOneLine>
-                    <TextMd>Status</TextMd>
-                    <TextMd>Date</TextMd>
+                    <Text>Status</Text>
+                    <Text>Date</Text>
                 </SCOneLine>
                 <SCOneLine style={{marginTop: "0"}}>
-                    <TextMd style={{color: "#7EC8DF"}} onClick={() => {
+                    <Text style={{color: "#7EC8DF"}} onClick={() => {
                         console.log(props)
                         props.openError()
-                    }}>Confrimed</TextMd>
-                    <TextMd>26.10.2021</TextMd>
+                    }}>Confrimed</Text>
+                    <Text>26.10.2021</Text>
                 </SCOneLine>
 
                 <BillingHighLight style={{paddingTop: "0"}}>
                     <SCOneLine>
-                        <TextMd>From</TextMd>
-                        <TextMd>To</TextMd>
+                        <Text>From</Text>
+                        <Text>To</Text>
                     </SCOneLine>
                     <SCOneLine style={{marginBottom:"0"}}>
-                        <TextMd>0xfs...rt187</TextMd>
-                        <TextMd>0xfs...xpr48</TextMd>
+                        <Text>0xfs...rt187</Text>
+                        <Text>0xfs...xpr48</Text>
                     </SCOneLine>
                 </BillingHighLight>
 
                 <SCOneLine>
-                    <TextMd>Nonce</TextMd>
+                    <Text>Nonce</Text>
                 </SCOneLine>
                 <SCOneLine style={{marginTop: "0"}}>
-                    <TextMd>#162</TextMd>
+                    <Text>#162</Text>
                 </SCOneLine>
 
                 <BillingHighLight style={{paddingTop: "0"}}>
                     <SCOneLine>
-                        <TextMd>Amount</TextMd>
-                        <TextMd>0 €</TextMd>
+                        <Text>Amount</Text>
+                        <Text>0 €</Text>
                     </SCOneLine>
                     <SCOneLine>
-                        <TextMd>Estimated gas fee</TextMd>
-                        <TextMd>0.3112 €</TextMd>
+                        <Text>Estimated gas fee</Text>
+                        <Text>0.3112 €</Text>
                     </SCOneLine>
                     <SCOneLine style={{marginBottom:"0"}}>
-                        <TextMd>Total amount</TextMd>
-                        <TextMd>0.3112 €</TextMd>
+                        <Text>Total amount</Text>
+                        <Text>0.3112 €</Text>
                     </SCOneLine>
                 </BillingHighLight>
 
-                <TextMdUnderline style={{color: "#7EC8DF", marginTop: "10%"}} onClick={() => {
+                <TextUnderline style={{color: "#7EC8DF", marginTop: "10%"}} onClick={() => {
                     window.open("https://google.com")
-                }}>View on BSCscan</TextMdUnderline>
+                }}>View on BSCscan</TextUnderline>
             </ReactModal>
         {/* </ScrollContainer> */}
         </PerfectScrollbar>

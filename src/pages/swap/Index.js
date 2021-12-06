@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import ComboBox from '../../components/ComboBox';
-import TextMd from '../../styled-components/TextMd';
-import AmountInput from "../../components/AmountInput";
-import ButtonGreen from '../../styled-components/ButtonGreen';
-import { marginMd, marginSm, marginLg } from '../../constants/dimentions';
+import ComboBoxB from '../../components/ComboBoxB';
+import Text from '../../styled-components/Text';
+import Button from '../../styled-components/Button';
+import { marginMd, marginSm, marginLg, inputHeightLg } from '../../constants/dimentions';
 import styled from 'styled-components';
 import { lightgray, red } from '../../constants/colors';
 import ReactModal from 'react-modal';
 import Success from '../../components/Success';
 import Spinner from '../../components/Spinner';
-import TextSm from '../../styled-components/TextSm';
 import XButton from '../../styled-components/XButton';
 import { useNavigate } from 'react-router';
 
@@ -27,6 +25,28 @@ const AmountWrapper = styled.div`
         top: 0;
     }
 `
+
+
+const Input = styled.input``;
+const AmountInput = styled.div`
+    width: 200px;
+    height: ${inputHeightLg}px;
+    text-align: center;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 1000px;
+    border: none;
+    outline: none;
+    & ${Input} {
+        border: none;
+        border-bottom: 1px solid black;
+        width: 89px;
+        height: 48px;
+        text-align: center;
+        &:active, &:focus {
+            outline: none;
+        }
+    }
+`;
 
 const Index = () => {
     const navigate = useNavigate();
@@ -49,26 +69,30 @@ const Index = () => {
             justifyContent: "center",
             alignItems: "center",
         }}>
-            <ComboBox 
+            
+            <ComboBoxB 
                 style={{
-                    margin: `${marginMd}px 0`,
+                    marginTop: "72px",
+                    marginBottom: `34px`,
                 }}
                 list={[{text: "Choose asset"},{text: "Asset 01"},{text: "Asset 02"},]}
                 onChange={() => {}}
             />
-            <TextMd style={{
+            <Text style={{
                 margin: `${marginSm}px 0`,
-            }}>Amount</TextMd>
+            }}>Amount</Text>
             <AmountWrapper>
                 <AmountWarning>{amountSwap >= 10 ? "Not enough *token here* to complete this swap." : ""}</AmountWarning>
                 <AmountInput style={{
-                    margin: `${marginLg}px 0 ${marginSm}px 0`,
-                }} onChange={e => setAmountSwap(e.target.value)} value={amountSwap}/>
+                    marginBottom: "25px"
+                }}>
+                    <Input onChange={e => setAmountSwap(e.target.value)} value={amountSwap}/>
+                </AmountInput>
             </AmountWrapper>
-            <TextMd style={{
+            <Text style={{
                 marginTop: "12px",
-            }}>Available</TextMd>
-            <ComboBox 
+            }}>Available</Text>
+            <ComboBoxB 
                 style={{
                     margin: `${marginMd}px 0`,
                 }}
@@ -93,10 +117,10 @@ const Index = () => {
             alignItems: 'center',
             flexGrow: 0
         }}>
-            <TextMd style={{
+            <Text style={{
                 marginRight: `${marginSm}px`,
-            }}>Max Slippage 3%</TextMd>
-            <ButtonGreen onClick={() => getQuateHandler()}>Get quotes</ButtonGreen>
+            }}>Max Slippage 3%</Text>
+            <Button onClick={() => getQuateHandler()}>Get quotes</Button>
         </div>
         <ReactModal 
             isOpen={loadingStep === 2}
@@ -120,7 +144,7 @@ const Index = () => {
             }}
         >
             <Success />
-            <TextSm>Transaction completed.</TextSm>
+            <Text>Transaction completed.</Text>
             <XButton onClick={() => setLoadingStep(0)}>X</XButton>
         </ReactModal>
     </>)

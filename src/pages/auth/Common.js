@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
-import InputSm from '../../styled-components/InputSm';
-import TextLg from '../../styled-components/TextLg';
-import TextSm from '../../styled-components/TextSm';
-import { marginMd } from "../../constants/dimentions";
+import Input from '../../styled-components/Input';
+import Text from '../../styled-components/Text';
 
-export const Logo = styled(TextLg)``;
-export const Title = styled(TextLg)``;
-export const FullInput = styled(InputSm)`
-    width: 100%;
+export const Logo = styled(Text)`
+    margin-bottom: 57px;
+    font-size: 18px;
+`;
+export const Title = styled(Text)`
+    margin-bottom: 46px;
+    font-size: 18px;
+`;
+export const FullInput = styled(Input)`
+    width: 276px;
+    height: 43px;
     text-align: center;
-    margin-top: ${marginMd}px;
-    margin-bottom: ${marginMd}px;
 `;
 
 export const Center = styled.div`
@@ -20,6 +23,6 @@ export const Center = styled.div`
     align-items: center;
 `;
 
-export const TextUnderline = styled(TextSm)`
+export const TextUnderline = styled(Text)`
     text-decoration: underline;
 `;

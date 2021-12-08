@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
 // import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
-import { topbarHeight, paddingLg, contactItemHeight, marginSm, footerHeight, marginMd, marginLg, paddingSm } from "../../constants/dimentions";
 import Text from "../../styled-components/Text";
 import Button from "../../styled-components/Button";
 import SignalImg from '../../components/SignalImg';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const Footer = styled.div`
-    height: ${footerHeight}px;
+    height: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,10 +34,10 @@ const Networks = () => {
     return (
         <>
             <PerfectScrollbar style={{
-                height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
-                paddingRight: `${paddingSm}px`
+                height: `calc(100vh - 50px - 39px - 44px)`,
+                paddingRight: `12px`
             }}>
-            {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
+            {/* <ScrollContainer style={{height: `calc(100vh - 50px - 39px - 44px - 64px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
                 <ul style={{
                     listStyle: "none",
                     paddingLeft: "5px",

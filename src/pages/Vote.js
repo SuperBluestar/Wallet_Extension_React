@@ -1,17 +1,14 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Text from '../styled-components/Text';
-import { coverImgHeight, paddingLg, paddingSm, footerHeight, topbarHeight, paddingMd } from '../constants/dimentions';
-import { heavygray } from '../constants/colors';
 // import ScrollContainer from 'react-indiana-drag-scroll';
-import ButtonRed from '../styled-components/ButtonRed';
 import Button from '../styled-components/Button';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const CoverImg = styled.div`
     width: 100%;
-    height: ${coverImgHeight}px;
-    background-color: ${heavygray};
+    height: 130px;
+    background-color: #9b9b9b;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,14 +29,12 @@ const Footer = styled.div`
 `;
 
 const Vote = () => {
-    const { id } = useParams();
     const navigate = useNavigate();
-    console.log(navigate)
     return (
         <div style={{
             display: "flex",
             flexDirection: "column",
-            height: `calc(100% - ${topbarHeight}px)`,
+            height: `calc(100% - 50px)`,
         }}>
             <CoverImg>
                 <Text style={{
@@ -49,7 +44,7 @@ const Vote = () => {
             <TextContent>
                 <PerfectScrollbar style={{
                     height: "260px",
-                    paddingRight: `${paddingMd}px`
+                    paddingRight: `16px`
                 }}>
                 {/* <ScrollContainer style={{height: "260px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                     <Text style={{

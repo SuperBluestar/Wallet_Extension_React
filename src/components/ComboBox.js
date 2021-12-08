@@ -1,8 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { borderRadiusSm, paddingSm, paddingMd, selectHeight } from '../constants/dimentions';
-import { lightgray } from '../constants/colors';
-import { zIndex05 } from '../constants/zIndexs';
 import Down from './Icons/Down';
 import Text from "../styled-components/Text";
 
@@ -41,20 +38,20 @@ const SelectedGroup = styled.div`
         }
     }
     &.open > ${ListGroup} {
-        z-index: ${zIndex05};
+        z-index: 50;
         display: block;
         position: absolute;
-        top: ${selectHeight}px;
+        top: 40px;
         margin-top: 5px;
         width: 100%;
-        border-radius: ${borderRadiusSm}px;
-        background-color: ${lightgray};
+        border-radius: 10px;
+        background-color: #f0f0f0;
         & ${Item} {
-            height: ${selectHeight}px;
+            height: 40px;
             display: flex;
             align-items: center;
             width: 100%;
-            padding: ${paddingSm}px ${paddingMd}px;
+            padding: 12px 16px;
             box-sizing: border-box;
         }
     }

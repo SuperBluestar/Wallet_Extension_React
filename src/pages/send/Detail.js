@@ -1,15 +1,11 @@
-import { marginLg, inputHeightLg, marginMd } from "../../constants/dimentions";
 import Text from "../../styled-components/Text";
 import ComboBoxB from '../../components/ComboBoxB';
 import styled from "styled-components";
-import InputWhite from "../../styled-components/InputWhite";
-import Button from "../../styled-components/Button";
-import { useParams, useNavigate } from "react-router-dom";
 
 const Input = styled.input``;
 const AmountInput = styled.div`
     width: 200px;
-    height: ${inputHeightLg}px;
+    height: 59px;
     text-align: center;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 1000px;
@@ -28,7 +24,6 @@ const AmountInput = styled.div`
 `;
 
 const Detail = () => {
-    const navigate = useNavigate();
     return (<>
         <ComboBoxB 
             style={{

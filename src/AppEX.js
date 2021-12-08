@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import {
   HashRouter as Router,
   Routes,
   Route,
-  useNavigate
+  Navigate,
 } from "react-router-dom";
 // layouts
 import Auth from './layouts/Auth';
@@ -37,6 +36,12 @@ import Vote from './pages/Vote';
 import VoteSuccess from './pages/VoteSuccess';
 import Login from './pages/auth/Login';
 import Verify from './pages/auth/Verify';
+import AuthExtra from './pages/auth/Extra';
+import AuthExtraIndex from './pages/auth/extra/Index';
+import AuthExtraRegister1 from './pages/auth/extra/Register1';
+import AuthExtraRegister2 from './pages/auth/extra/Register2';
+import AuthExtraRegister3 from './pages/auth/extra/Register3';
+import AuthExtraRegister4 from './pages/auth/extra/Register4';
 import MainLayout from './layouts/MainLayout';
 import TransactionHistory from "./pages/TransactionHistory";
 import FillKYC from "./pages/FillKYC";
@@ -59,8 +64,16 @@ function AppEX() {
           <Routes >
             {/* <Route path="/" element={<div>Hello</div>}></Route> */}
             <Route path="" element={<Auth />}>
-              <Route path="" element={<Login />}></Route>
+              <Route path="login" element={<Login />}></Route>
               <Route path="verify" element={<Verify />}></Route>
+              <Route path="extra" element={<AuthExtra />}>
+                <Route path="" element={<AuthExtraIndex />}></Route>
+                <Route path="register1" element={<AuthExtraRegister1 />}></Route>
+                <Route path="register2" element={<AuthExtraRegister2 />}></Route>
+                <Route path="register3" element={<AuthExtraRegister3 />}></Route>
+                <Route path="register4" element={<AuthExtraRegister4 />}></Route>
+              </Route>
+              <Route path="" element={<Navigate to="/extra" />}></Route>
             </Route>
             <Route path="doc" element={<Doc />}></Route>
             <Route path="main" element={<MainLayout />}>

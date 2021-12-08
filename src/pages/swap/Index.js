@@ -2,9 +2,7 @@ import { useState } from 'react';
 import ComboBoxB from '../../components/ComboBoxB';
 import Text from '../../styled-components/Text';
 import Button from '../../styled-components/Button';
-import { marginMd, marginSm, marginLg, inputHeightLg } from '../../constants/dimentions';
 import styled from 'styled-components';
-import { lightgray, red } from '../../constants/colors';
 import ReactModal from 'react-modal';
 import Success from '../../components/Success';
 import Spinner from '../../components/Spinner';
@@ -12,7 +10,7 @@ import XButton from '../../styled-components/XButton';
 import { useNavigate } from 'react-router';
 
 const AmountWarning = styled.div`
-    color: ${red};
+    color: ##ff5656;
 `;
 
 const AmountWrapper = styled.div`
@@ -30,7 +28,7 @@ const AmountWrapper = styled.div`
 const Input = styled.input``;
 const AmountInput = styled.div`
     width: 200px;
-    height: ${inputHeightLg}px;
+    height: 59px;
     text-align: center;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 1000px;
@@ -66,35 +64,34 @@ const Index = () => {
             flexGrow: 1,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
         }}>
             
             <ComboBoxB 
                 style={{
-                    marginTop: "72px",
+                    marginTop: "22px",
                     marginBottom: `34px`,
                 }}
                 list={[{text: "Choose asset"},{text: "Asset 01"},{text: "Asset 02"},]}
                 onChange={() => {}}
             />
             <Text style={{
-                margin: `${marginSm}px 0`,
+                marginBottom: `30px`,
             }}>Amount</Text>
             <AmountWrapper>
                 <AmountWarning>{amountSwap >= 10 ? "Not enough *token here* to complete this swap." : ""}</AmountWarning>
                 <AmountInput style={{
-                    marginBottom: "25px"
+                    marginBottom: "23px"
                 }}>
                     <Input onChange={e => setAmountSwap(e.target.value)} value={amountSwap}/>
                 </AmountInput>
             </AmountWrapper>
             <Text style={{
-                marginTop: "12px",
+                marginBottom: "16px"
             }}>Available</Text>
             <ComboBoxB 
                 style={{
-                    margin: `${marginMd}px 0`,
+                    marginBottom: `84px`,
                 }}
                 list={[{text: "Select token"},{text: "Token 01"},{text: "Token 02"},]}
                 onChange={() => {}}
@@ -104,6 +101,7 @@ const Index = () => {
                 position: "fixed",
                 width: "100%",
                 height: "100%",
+                top: 0,
                 backgroundColor: `rgba(255, 255, 255, 0.75)`,
                 display: 'flex',
                 justifyContent: "center",
@@ -118,9 +116,13 @@ const Index = () => {
             flexGrow: 0
         }}>
             <Text style={{
-                marginRight: `${marginSm}px`,
+                marginRight: `30px`,
             }}>Max Slippage 3%</Text>
-            <Button onClick={() => getQuateHandler()}>Get quotes</Button>
+            <Button style={{
+                width: "123px",
+                height: "45px",
+                backgroundColor: "#15EA37",
+            }} onClick={() => getQuateHandler()}>Get quotes</Button>
         </div>
         <ReactModal 
             isOpen={loadingStep === 2}

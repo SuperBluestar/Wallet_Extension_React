@@ -3,21 +3,18 @@ import { useState } from "react";
 import styled from "styled-components";
 import Button from '../../styled-components/Button';
 import Text from '../../styled-components/Text';
-import { topbarHeight, paddingLg } from "../../constants/dimentions";
 import Title from "../../components/Title";
 import Description from "../../components/Description";
 import Switch from '../../components/Switch';
 import HightLight from '../../styled-components/HighLight';
-import { lightgray } from "../../constants/colors";
-import { paddingSm, marginMd, borderRadiusSm } from "../../constants/dimentions";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const IpfsGateway = styled(HightLight)`
     width: 100%;
     height: 26px;
     box-sizing: border-box;
-    background: ${lightgray};
-    border-radius: ${borderRadiusSm}px;
+    background: #f0f0f0;
+    border-radius: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -30,9 +27,9 @@ const Advanced = () => {
     const [logs, setLogs] = useState(false);
     return (
         <PerfectScrollbar style={{
-            height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
+            height: `calc(100vh - 50px - 39px - 44px)`,
         }}>
-        {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
+        {/* <ScrollContainer style={{height: `calc(100vh - 50px - 39px - 44px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Title style={{
                 marginBottom: "9px"
             }}>Reset account</Title>

@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom";
 import Text from "../../styled-components/Text";
-import { marginMd, marginSm, marginLg } from "../../constants/dimentions";
 import { useState } from "react";
 import RadioButton from '../../components/RadioButton';
 import InputWhite from "../../styled-components/InputWhite";
@@ -27,7 +25,6 @@ const cardTypes = [{
 },]
 
 const AddFundsCreditDetail = () => {
-    const navigate = useNavigate();
     const [cardType, setCardType] = useState(0);
     return (
         <>
@@ -98,7 +95,7 @@ const AddFundsCreditDetail = () => {
             <div style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: `${marginLg}px`,
+                marginTop: `22px`,
             }}>
                 <Button style={{
                     width: "123px",

@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 
-export default function useEffectOnce(cb) {
+function useEffectOnce(cb = () => {}) {
     useEffect(cb, [])
 }
+
+export default useEffectOnce;

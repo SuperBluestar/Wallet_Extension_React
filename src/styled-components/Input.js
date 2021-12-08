@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import { inputHeightSm, borderRadiusSm } from "../constants/dimentions";
-import { lightgray } from "../constants/colors";
 
 const Input = styled.input`
-    background-color: ${lightgray};
-    border-radius: ${borderRadiusSm}px;
-    height: ${inputHeightSm}px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    height: 30px;
     border: none;
     font-size: 12px;
     &:active, &:focus {

@@ -1,7 +1,4 @@
-import Button from "../../styled-components/Button";
 import Text from "../../styled-components/Text";
-import { marginLg, marginMd, marginSm } from '../../constants/dimentions';
-import { useNavigate } from "react-router-dom";
 import Input from "../../styled-components/Input";
 import styled from "styled-components";
 
@@ -16,7 +13,6 @@ export const InputBox = styled(Input)`
 `;
 
 const Index = () => {
-    const navigate = useNavigate();
     return (<>
         <Text style={{
             marginTop: "34px",

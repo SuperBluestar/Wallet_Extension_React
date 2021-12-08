@@ -16,9 +16,6 @@ import HelpIcon from "../components/Icons/Help";
 import RequestIcon from "../components/Icons/Request";
 import AddIcon from "../components/Icons/Add";
 import { useContext, useState } from "react";
-import { white, gray, lightgray } from "../constants/colors";
-import { topbarHeight, paddingSm, paddingMd, marginLg, marginSm } from "../constants/dimentions";
-import { zIndex01, zIndex02, zIndex03 } from "../constants/zIndexs";
 import SignalImg from "../components/SignalImg";
 import styled from "styled-components";
 import ReactModal from 'react-modal';
@@ -36,7 +33,7 @@ const styles = {
         alignItems: "center",
     },
     bmMenuWrap: {
-      background: white,
+      background: "white",
       top: 0,
     },
     bmItemList: {
@@ -47,29 +44,20 @@ const styles = {
 
 const Topbar = styled.div`
     width: 100%;
-    height: ${topbarHeight}px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
-    background-color: ${gray};
+    background-color: #c4c4c4;
 `;
 
 const MenuTopboard = styled.div`
-    background-color: ${white};
+    background-color: white;
     padding: 32px 25px 27px 25px;
 `;
 const MenuContent = styled.div`
-    background-color: ${lightgray};
+    background-color: #f0f0f0;
     padding: 20px;
     height: 100%;
-`;
-
-const SidebarButton = styled(Button)`
-    width: calc(50% - 20px);
-    margin: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    min-width: 0px;
 `;
 
 const List = styled.ul`
@@ -102,7 +90,8 @@ const SidebarOpen = styled.div`
 
 const SingleNetwork = styled.div`
     display: flex;
-    margin: ${marginSm}px;
+    align-items: center;
+    margin: 12px;
     cursor: pointer;
 `;
 
@@ -293,7 +282,7 @@ const MainLayout = () => {
                     <SidemenuOpenIcon/>
                 </SidebarOpen>
                 <div style={{
-                    padding: paddingSm
+                    padding: "12px"
                 }}>
                     <Text style={{
                         textAlign: "right",
@@ -323,7 +312,7 @@ const MainLayout = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        zIndex: `${zIndex03}`,
+                        zIndex: `30`,
                     },
                     content: {
                         position: 'relative',
@@ -339,7 +328,7 @@ const MainLayout = () => {
                 {networks.map((network, id) => (
                     <SingleNetwork key={id}>
                         <SignalImg style={{
-                            marginRight: `${marginSm}px`
+                            marginRight: `12px`
                         }} signal={false}></SignalImg>
                         <Text>{network.name}</Text>
                     </SingleNetwork>
@@ -349,8 +338,9 @@ const MainLayout = () => {
                     setNetworkModal(false)
                     navigate("/main/settings/add-network")
                 }}>
-                    <AddIcon style={{
-                        marginRight: `${marginSm}px`
+                    <AddIcon width={"18px"} height={"18px"} style={{
+                        marginRight: `12px`,
+                        marginLeft: "-4px"
                     }}></AddIcon>
                     <Text>Add network</Text>
                 </SingleNetwork>

@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { lightgray } from "../constants/colors";
 
 const HighLight = styled.div`
-    background-color: ${lightgray};
+    background-color: #f0f0f0;
 `;
 
 export default HighLight;

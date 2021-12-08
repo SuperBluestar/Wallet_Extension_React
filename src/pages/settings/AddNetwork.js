@@ -1,6 +1,5 @@
 // import ScrollContainer from "react-indiana-drag-scroll";
 import styled from "styled-components";
-import { topbarHeight, paddingLg, marginSm, paddingSm, marginLg, footerHeight } from "../../constants/dimentions";
 import Text from "../../styled-components/Text";
 import Button from "../../styled-components/Button";
 import InputWhite from "../../styled-components/InputWhite";
@@ -24,11 +23,11 @@ const AddNetwork = () => {
     return (
         <>
             <PerfectScrollbar style={{
-                height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`,
-                paddingRight: `${paddingSm}px`
+                height: `calc(100vh - 50px - 39px - 44px - 64px)`,
+                paddingRight: `12px`
             }}>
             {/* <ScrollContainer style={{
-                height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px - ${footerHeight}px)`,
+                height: `calc(100vh - 50px - 39px - 44px - 64px)`,
             }} vertical={true} horizontal={false} hideScrollbars={true}> */}
                 <Text style={{
                     textAlign: "center",
@@ -90,7 +89,7 @@ const AddNetwork = () => {
             <div style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: `${marginLg}px`,
+                marginTop: `22px`,
             }}>
                 <Button style={{
                     backgroundColor: "#15EA37",

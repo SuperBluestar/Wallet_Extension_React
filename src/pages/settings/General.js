@@ -1,13 +1,9 @@
-import { marginMd, topbarHeight, paddingLg, marginSm, paddingSm } from '../../constants/dimentions';
-import { black, blue, lightgray } from '../../constants/colors';
-import ScrollContainer from 'react-indiana-drag-scroll';
+// import ScrollContainer from 'react-indiana-drag-scroll';
 import RadioButton from '../../components/RadioButton';
 import Switch from '../../components/Switch';
 import ComboBox from '../../components/ComboBox';
 import { useState } from "react";
 import Text from "../../styled-components/Text";
-import Title from "../../components/Title";
-import Description from "../../components/Description";
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const radioList = [{
@@ -21,10 +17,10 @@ const General = () => {
     const [activeRadio, setActiveRadio] = useState(0);
     return (
         <PerfectScrollbar style={{
-            height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
-            paddingRight: `${paddingSm}px`
+            height: `calc(100vh - 50px - 39px - 44px)`,
+            paddingRight: `12px`
         }}>
-        {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
+        {/* <ScrollContainer style={{height: `calc(100vh - 50px - 39px - 44px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Text style={{
                 fontWeight: 700,
                 fontSize: "14px",
@@ -50,7 +46,7 @@ const General = () => {
             }}>Select native to prioritize displaying values in the<br /> native currency of the chain (e.g. ETH).<br /> Select Fiat to prioritize displaying values in<br /> your selected fiat currency.</Text>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `16px`,
             }}>
                 {radioList.map((radio, id) => (
                     <RadioButton key={id} text={radio.text} active={activeRadio === id} onClick={() => setActiveRadio(id)}></RadioButton>
@@ -117,7 +113,7 @@ const General = () => {
                         width: "39px",
                         height: "39px",
                         borderRadius: "1000px",
-                        border: true ? "none" : `1px solid ${blue}`,
+                        border: true ? "none" : `1px solid #7ec8df`,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
@@ -126,11 +122,11 @@ const General = () => {
                             width: "33px",
                             height: "33px",
                             borderRadius: "1000px",
-                            border: `1px solid ${black}`,
+                            border: `1px solid black`,
                         }}></div>
                     </div>
                     <Text style={{
-                        marginLeft: `${marginSm}px`
+                        marginLeft: `12px`
                     }}>Jazzicons</Text>
                 </div>
                 <div style={{
@@ -142,7 +138,7 @@ const General = () => {
                         width: "39px",
                         height: "39px",
                         borderRadius: "1000px",
-                        border: false ? "none" : `1px solid ${blue}`,
+                        border: false ? "none" : `1px solid #7ec8df`,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
@@ -151,11 +147,11 @@ const General = () => {
                             width: "33px",
                             height: "33px",
                             borderRadius: "1000px",
-                            border: `1px solid ${black}`,
+                            border: `1px solid black`,
                         }}></div>
                     </div>
                     <Text style={{
-                        marginLeft: `${marginSm}px`
+                        marginLeft: `12px`
                     }}>blockies</Text>
                 </div>
             </div>

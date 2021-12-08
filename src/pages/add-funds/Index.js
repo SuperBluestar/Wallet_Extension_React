@@ -1,19 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import InputWhite from "../../styled-components/InputWhite";
 import Text from "../../styled-components/Text";
-import { inputHeightLg, marginLg, marginSm, marginMd } from "../../constants/dimentions";
 import Button from "../../styled-components/Button";
 
 const TextUnderline = styled(Text)`
     text-decoration: underline;
-    margin: ${marginMd}px 0;
+    margin: 16px 0;
 `;
 
 const Input = styled.input``;
 const AmountInput = styled.div`
     width: 200px;
-    height: ${inputHeightLg}px;
+    height: 59px;
     text-align: center;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 1000px;

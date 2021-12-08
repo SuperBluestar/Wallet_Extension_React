@@ -1,7 +1,4 @@
 import Text from "../../styled-components/Text";
-import Button from "../../styled-components/Button";
-import { marginLg, marginSm, inputHeightLg } from "../../constants/dimentions";
-import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
 import { InputBox } from './Index';
@@ -9,7 +6,7 @@ import { InputBox } from './Index';
 const Input = styled.input``;
 const AmountInput = styled.div`
     width: 200px;
-    height: ${inputHeightLg}px;
+    height: 59px;
     text-align: center;
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 1000px;
@@ -28,7 +25,6 @@ const AmountInput = styled.div`
 `;
 
 const Confirm = () => {
-    const navigate = useNavigate();
     return (<>
         <Text style={{
             marginBottom: "5px",

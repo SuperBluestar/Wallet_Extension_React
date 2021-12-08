@@ -1,14 +1,13 @@
 import styled from 'styled-components';
-import { paddingSm, topbarHeight } from '../constants/dimentions';
 import { Outlet } from 'react-router-dom';
 
 const ReceiveLayout = styled.div`
-    padding: ${paddingSm}px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - ${topbarHeight}px - ${paddingSm * 2}px);
+    height: calc(100vh - 50px - 24px);
 `;
 
 const Receive = () => {

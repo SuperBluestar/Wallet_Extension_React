@@ -1,8 +1,6 @@
 import { useState } from "react";
 // import ScrollContainer from 'react-indiana-drag-scroll';
 import styled from 'styled-components';
-import { topbarHeight, paddingLg, metamaskInfoVideoWidth, metamaskInfoVideoHeight, borderRadiusSm, paddingSm, marginSm, marginMd, paddingMd } from '../../constants/dimentions';
-import { lightgray } from '../../constants/colors';
 import HightLight from '../../styled-components/HighLight';
 import Text from '../../styled-components/Text';
 import CheckIcon from '../../components/Icons/Check';
@@ -14,9 +12,9 @@ import Switch from '../../components/Switch';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const MetamaskInfo = styled(HightLight)`
-    width: ${metamaskInfoVideoWidth}px;
-    height: ${metamaskInfoVideoHeight}px;
-    border-radius: ${borderRadiusSm}px;
+    width: 150px;
+    height: 80px;
+    border-radius: 10px;
     background-color: #C4C4C4;
     display: flex;
     align-items: center;
@@ -41,10 +39,10 @@ const Security = () => {
     const [incomingTransactoin, setIncomingTransactoin] = useState(false);
     return (
         <PerfectScrollbar style={{
-            height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`,
-            // paddingRight: `${paddingSm}px`
+            height: `calc(100vh - 50px - 39px - 44px)`,
+            // paddingRight: `12px`
         }}>
-        {/* <ScrollContainer style={{height: `calc(100vh - ${topbarHeight}px - 39px - ${paddingLg * 2}px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
+        {/* <ScrollContainer style={{height: `calc(100vh - 50px - 39px - 44px)`}} vertical={true} horizontal={false} hideScrollbars={true}> */}
             <Title>Protect your wallet</Title>
             <div style={{
                 display: "flex",
@@ -59,7 +57,7 @@ const Security = () => {
             <SecretRecoveryPhrase>
                 <CheckIcon width={17} height={17} />
                 <Text style={{
-                    marginLeft: `${marginSm}px`,
+                    marginLeft: `12px`,
                 }}>Secret recovery phrase backed up</Text>
             </SecretRecoveryPhrase>
             <div style={{
@@ -173,7 +171,7 @@ const Security = () => {
             </div>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `16px`,
                 alignItems: "center",
                 justifyContent: "space-between",
             }}>
@@ -185,7 +183,7 @@ const Security = () => {
             }}>websites must request access to view<br /> your account information.</Description>
             <div style={{
                 display: "flex",
-                marginBottom: `${marginMd}px`,
+                marginBottom: `16px`,
                 alignItems: "center",
                 justifyContent: "space-between",
             }}>

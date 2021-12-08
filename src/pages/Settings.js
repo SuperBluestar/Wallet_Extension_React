@@ -1,5 +1,4 @@
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
-import { topbarHeight, paddingLg, paddingSm } from '../constants/dimentions';
 import LeftIcon from "../components/Icons/Left";
 import Text from '../styled-components/Text';
 
@@ -10,8 +9,8 @@ const Settings = () => {
         <div style={{
             display: "flex",
             flexDirection: "column",
-            height: `calc(100% - ${topbarHeight}px)`,
-            padding: `${paddingLg}px`,
+            height: `calc(100% - 50px)`,
+            padding: `22px`,
             boxSizing: "border-box",
         }}>
             <div style={{
@@ -22,7 +21,7 @@ const Settings = () => {
             }} onClick={() => navigate(-1)}>
                 <LeftIcon width={16} height={27}/>
                 <Text style={{
-                    paddingLeft: paddingSm,
+                    paddingLeft: "12px",
                     textTransform: "capitalize",
                     fontSize: "14px",
                     lineHeight: "16px",

@@ -7,7 +7,7 @@ import Spinner from '../../styled-components/Spinner';
 import { Logo, Title, FullInput, Center, TextUnderline } from "./Common";
 
 const Verify = () => {
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     return (
         <>
             <Logo>Valo.id logo</Logo>
@@ -26,7 +26,7 @@ const Verify = () => {
                 <Center style={{
                     paddingTop: "50px",
                 }}>
-                    <Link to="/verify">
+                    <Link to="/extra">
                         <TextUnderline style={{
                             fontSize: "12px",
                             color: "#000000",

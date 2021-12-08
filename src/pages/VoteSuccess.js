@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { topbarHeight, paddingLg, marginLg } from '../constants/dimentions';
 import Text from '../styled-components/Text';
 import Button from '../styled-components/Button';
 
@@ -11,7 +10,7 @@ const Vote = () => {
         <div style={{
             display: "flex",
             flexDirection: "column",
-            height: `calc(100% - ${topbarHeight}px)`,
+            height: `calc(100% - 50px)`,
             justifyContent: "center",
             padding: `0px 54px`,
             boxSizing: "border-box",

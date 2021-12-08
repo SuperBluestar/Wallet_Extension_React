@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { marginMd } from "../constants/dimentions";
 
 const XButton = styled.button`
     position: absolute;
-    right: ${marginMd}px;
-    top: ${marginMd}px;
+    right: 16px;
+    top: 16px;
     background: transparent;
     border: none;
     outline: none;

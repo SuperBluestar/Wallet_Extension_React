@@ -1,5 +1,3 @@
-import { iconWidth, marginSm } from "../constants/dimentions"
-import { black, green } from "../constants/colors";
 import Text from "../styled-components/Text";
 
 const RadioButton = ({ text = "", active = false, style, ...props}) => {
@@ -10,10 +8,10 @@ const RadioButton = ({ text = "", active = false, style, ...props}) => {
         ...style,
     }} {...props}>
         <div style={{
-            width: `${iconWidth}px`,
-            height: `${iconWidth}px`,
+            width: `16px`,
+            height: `16px`,
             borderRadius: "1000px",
-            borderColor: `${black}`,
+            borderColor: `black`,
             borderWidth: "1px",
             display: "flex",
             alignItems: "center",
@@ -22,16 +20,16 @@ const RadioButton = ({ text = "", active = false, style, ...props}) => {
         }}>
             {active ? 
             <div style={{
-                width: `${iconWidth - 6}px`,
-                height: `${iconWidth - 6}px`,
+                width: `10px`,
+                height: `10px`,
                 border: "none",
                 borderRadius: "1000px",
-                backgroundColor: `${green}`,
+                backgroundColor: `15ea37`,
             }}></div> : 
             <></>}
         </div>
         <Text style={{
-            marginLeft: `${marginSm}px`,
+            marginLeft: `12px`,
             minWidth: "80px",
         }}>{text}</Text>
     </div>)

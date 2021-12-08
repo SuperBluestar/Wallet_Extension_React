@@ -6,7 +6,6 @@ import SendIcon from "../components/Icons/Send";
 import RefreshCheckIcon from "../components/Icons/RefreshCheck";
 import ReceiveIcon from "../components/Icons/Receive";
 import Text from "../styled-components/Text";
-import { borderRadiusSm, marginMd, paddingSm, circleBtnSize, marginSm, paddingLg, paddingMd, topbarHeight, marginLg } from "../constants/dimentions";
 import ReactModal from 'react-modal';
 import HigtLight from "../styled-components/HighLight";
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -17,22 +16,22 @@ const SingleTransaction = styled.div`
 
 const TransactionDetail = styled.div`
     display: flex;
-    margin: ${marginSm}px 0;
+    margin: 12px 0;
 `;
 
 const HighLightCircle = styled(HighLight)`
     border-radius: 1000px;
-    width: ${circleBtnSize}px;
-    height: ${circleBtnSize}px;
+    width: 37px;
+    height: 37px;
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
 const IconTypes = {
-    Send: <SendIcon />,
-    RefreshCheck: <RefreshCheckIcon />,
-    Receive: <ReceiveIcon />,
+    Send: <SendIcon width={"23px"} height={"23px"} />,
+    RefreshCheck: <RefreshCheckIcon width={"23px"} height={"23px"} />,
+    Receive: <ReceiveIcon width={"23px"} height={"23px"} />,
 }
 
 const TransactionStatus = {
@@ -44,14 +43,14 @@ const SCOneLine = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: ${marginSm}px 0;
+    margin: 12px 0;
     width: 100%;
 `;
 
 const BillingHighLight = styled(HigtLight)`
-    border-radius: ${borderRadiusSm}px;
+    border-radius:10px;
     width: 100%;
-    padding: ${paddingMd}px ${paddingSm}px;
+    padding: 12px 12px;
     box-sizing: border-box;
 `;
 
@@ -63,7 +62,7 @@ const TextUnderline = styled(Text)`
 const TransactionHistory = (props) => {
     const [openTransactionDetail, setOpenTransactionDetail] = useState(false);
     
-    const [transactions, setTransactions] = useState([{
+    const [transactions] = useState([{
         transactionNumber: "Transaction number",
         timestamp: "Date-Time",
         device: "Device",
@@ -146,12 +145,12 @@ const TransactionHistory = (props) => {
     },])
     return (
         <PerfectScrollbar style={{
-            height: `calc(100vh - ${topbarHeight}px - ${paddingLg * 2}px)`,
-            padding: `${paddingLg}px`
+            height: `calc(100vh - 50px - ${63}px)`,
+            padding: `58px 40px 5px 40px`
         }}>
         {/* <ScrollContainer style={{
             padding: `${paddingLg}px`,
-            height: `calc(100vh - ${topbarHeight}px - ${paddingLg * 2}px)`,
+            height: `calc(100vh - 50px - 44px)`,
         }} vertical={true} horizontal={false} hideScrollbars={true}> */}
             {transactions.map((transaction, id) => (<SingleTransaction key={id}>
                 <Text>{transaction.transactionNumber} - {transaction.timestamp} - {transaction.device}</Text>
@@ -166,14 +165,19 @@ const TransactionHistory = (props) => {
                         display: "flex",
                         justifyContent: "center",
                         flexDirection: "column",
-                        paddingLeft: `${paddingMd}px`,
+                        paddingLeft: `16px`,
                     }}>
-                        <Text>{transaction.text}</Text>
-                        <Text>{transaction.status}</Text>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>{transaction.text}</Text>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>{transaction.status}</Text>
                     </div>
                     <Text style={{
                         display: "flex",
-                        alignItems: "center"
+                        alignItems: "center",
+                        fontSize: "10px"
                     }}>{transaction.amount}</Text>
                 </TransactionDetail>
             </SingleTransaction>))}
@@ -196,24 +200,34 @@ const TransactionHistory = (props) => {
                         alignItems: "center",
                         height: "fit-content",
                         inset: 0,
+                        borderRadius: "10px",
                     }
                 }}
             >
-                <Text style={{marginBottom: `${marginLg}px`}}>Smart Contract interaction</Text>
+                <Text style={{marginBottom: `22px`}}>Smart Contract interaction</Text>
                 
-                <SCOneLine>
+                <SCOneLine style={{
+                    padding: "0px 11px",
+                    boxSizing: "border-box",
+                    marginBottom: "8px",
+                }}>
                     <Text>Status</Text>
                     <Text>Date</Text>
                 </SCOneLine>
-                <SCOneLine style={{marginTop: "0"}}>
-                    <Text style={{color: "#7EC8DF"}} onClick={() => {
+                <SCOneLine style={{
+                    padding: "0px 11px",
+                    boxSizing: "border-box",
+                    marginBottom: "8px",
+                    marginTop: "0px"
+                }}>
+                    <Text style={{color: "#4BB78F"}} onClick={() => {
                         console.log(props)
                         props.openError()
                     }}>Confrimed</Text>
                     <Text>26.10.2021</Text>
                 </SCOneLine>
 
-                <BillingHighLight style={{paddingTop: "0"}}>
+                <BillingHighLight style={{marginBottom: "6px"}}>
                     <SCOneLine>
                         <Text>From</Text>
                         <Text>To</Text>
@@ -224,10 +238,20 @@ const TransactionHistory = (props) => {
                     </SCOneLine>
                 </BillingHighLight>
 
-                <SCOneLine>
+                <SCOneLine style={{
+                    padding: "0px 11px",
+                    boxSizing: "border-box",
+                    marginBottom: "8px",
+                    marginTop: "0px",
+                }}>
                     <Text>Nonce</Text>
                 </SCOneLine>
-                <SCOneLine style={{marginTop: "0"}}>
+                <SCOneLine style={{
+                    padding: "0px 11px",
+                    boxSizing: "border-box",
+                    marginBottom: "8px",
+                    marginTop: "0px",
+                }}>
                     <Text>#162</Text>
                 </SCOneLine>
 

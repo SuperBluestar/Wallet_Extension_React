@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { white, gray } from '../constants/colors';
-import { circleBtnSize, tabItemWidth, tabItemBorderRadius, paddingLg, marginSm, tabItemHeight, footerHeight, tokenItemHeight, votingItemHeight, borderRadiusSm, marginMd, paddingSm, paddingMd } from '../constants/dimentions';
 import HighLight from "../styled-components/HighLight";
 import Text from "../styled-components/Text";
 import Button from "../styled-components/Button";
@@ -23,19 +21,10 @@ const MainBoard = styled.div`
 `;
 
 const Board = styled.div`
-    background-color: ${white};
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-`;
-
-const Address = styled(HighLight)`
-    padding: 10px 20px;
-    margin: 9px auto;
-`;
-
-const TotalBalance = styled(Text)`
-    margin: 0px auto;
 `;
 
 const BoardButtonGroup = styled.div`
@@ -61,34 +50,34 @@ const BoradButton = styled.div`
 `;
 
 const TabMenu = styled.div`
-    border-top-left-radius: ${tabItemBorderRadius}px;
-    border-top-right-radius: ${tabItemBorderRadius}px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
     box-shadow: 0px -2px 6px grey;
     background-color: #F0F0F0;
     &.active {
-        background-color: ${white};
+        background-color: white;
     }
 `;
 
 const Tabs = styled.div`
     display: flex;
     & ${TabMenu} {
-        width: ${tabItemWidth}px;
-        height: ${tabItemHeight}px;
+        width: 88px;
+        height: 44px;
         box-sizing: border-box;
         display: flex;
         justify-content: center;
         padding-top: 8px;
         &:not(:first-child) {
-            margin-left: -${marginSm}px;
+            margin-left: -12px;
         }
     }
 `;
 
 const TabPanel = styled.div`
     padding: 21px 27px 28px 27px;
-    margin-top: -${marginSm}px;
-    background: ${white};
+    margin-top: -12px;
+    background: white;
     height: 280px;
     z-index: 20;
     box-sizing: border-box;
@@ -116,20 +105,20 @@ const Footer = styled.div`
 
 const TokenItem = styled.div`
     display: flex;
-    height: ${tokenItemHeight}px;
-    margin: ${marginSm}px 0px;
+    height: 40px;
+    margin: 12px 0px;
     & ${HighLight} {
         border-radius: 1000px;
-        width: ${circleBtnSize}px;
-        height: ${circleBtnSize}px;
+        width: 37px;
+        height: 37px;
     }
 `;
 
 const VotingItem = styled(HighLight)`
-    width: calc(100% - ${marginSm}px);
-    height: ${votingItemHeight}px;
-    border-radius: ${borderRadiusSm}px;
-    margin-bottom: ${marginMd}px;
+    width: calc(100% - 12px);
+    height: 84px;
+    border-radius: 10px;
+    margin-bottom: 16px;
     &.last-item {
         margin-bottom: 0px;
     }
@@ -137,12 +126,12 @@ const VotingItem = styled(HighLight)`
 
 const SiteItem = styled.div`
     display: flex;
-    height: ${tokenItemHeight}px;
-    margin: ${marginSm}px 0px;
+    height: 40px;
+    margin: 12px 0px;
     & ${HighLight} {
         border-radius: 1000px;
-        width: ${circleBtnSize}px;
-        height: ${circleBtnSize}px;
+        width: 37px;
+        height: 37px;
     }
 `;
 
@@ -154,7 +143,7 @@ const Main = () => {
         tabContent: <TabPanel>
             <PerfectScrollbar style={{
                 height: "auto",
-                paddingBottom: `${paddingSm}px`
+                paddingBottom: `12px`
             }}>
             {/* <ScrollContainer className="scroll-container" vertical={true} horizontal={true} hideScrollbars={true}> */}
                 <Text style={{
@@ -185,7 +174,7 @@ const Main = () => {
         tabContent: <TabPanel>
             <PerfectScrollbar style={{
                 height: "200px",
-                paddingRight: `${paddingMd}px`
+                paddingRight: `16px`
             }}>
             {/* <ScrollContainer style={{height: "200px"}} vertical={true} horizontal={false} hideScrollbars={false}> */}
                 {[0,0,0,0,0,0,0,0,0].map((issuer, id) => {
@@ -199,7 +188,7 @@ const Main = () => {
                             textAlign: "center"
                         }}>{id === 0 ? <>Token<br />logo</> : ""}</HighLight>
                         <div style={{
-                            marginLeft: marginSm,
+                            marginLeft: "12px",
                             flexGrow: 1,
                             display: "flex",
                             flexDirection: "column",
@@ -276,7 +265,7 @@ const Main = () => {
                             textAlign: "center"
                         }}>site <br />favicon</HighLight>
                         <div style={{
-                            marginLeft: marginSm,
+                            marginLeft: "12px",
                             flexGrow: 1,
                             display: "flex",
                             flexDirection: "column",

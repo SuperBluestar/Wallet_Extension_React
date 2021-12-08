@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import ReactModal from 'react-modal';
 import { zIndex03 } from "../constants/zIndexs";
 import Text from "../styled-components/Text";
@@ -37,10 +37,15 @@ const AppContextProvider = ({children}) => {
                     }
                 }}
             >
-                <Text style={{margin:"10% 0 10%"}}>OopS.</Text>
-                <Text>ERROR</Text>
+                <Text style={{
+                    margin:"10% 0 10%",
+                    fontSize: "18px"
+                }}>OopS.</Text>
+                <Text style={{
+                    fontSize: "18px"
+                }}>ERROR</Text>
                 <Text style={{marginBottom:"10%"}}>404</Text>
-                <Text style={{marginBottom:"10%", color:"#FF5656"}}>x _ X</Text>
+                <Text style={{marginBottom:"10%", color:"#FF5656"}}>X _ X</Text>
             </ReactModal>
         </AppContext.Provider>
     )

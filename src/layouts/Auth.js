@@ -4,7 +4,6 @@ import {
     // useNavigate 
 } from 'react-router-dom';
 import styled from 'styled-components';
-import { paddingSm } from "../constants/dimentions";
 
 const CenterView = styled.div`
     box-sizing: border-box;

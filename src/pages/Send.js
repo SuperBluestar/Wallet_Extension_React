@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { paddingSm, topbarHeight, marginLg, marginSm } from '../constants/dimentions';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import Text from '../styled-components/Text';
 import Button from '../styled-components/Button';
@@ -11,7 +10,7 @@ const SendLayout = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - ${topbarHeight}px - ${31 * 2}px);
+    height: calc(100vh - 50px - 62px);
 `;
 
 const Footer = styled.div`

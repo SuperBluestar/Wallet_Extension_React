@@ -1,6 +1,8 @@
 import ConfirmIcon from '../styled-components/ConfirmIcon';
 import Closemenu from '../assets/cross.png';
 
-export default () => (
+const SideMenuCloseIcon = () => (
     <img src={Closemenu} alt="CloseSidemenu"/>
 )
+
+export default SideMenuCloseIcon;

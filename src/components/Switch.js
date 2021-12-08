@@ -1,18 +1,16 @@
 import styled from "styled-components";
-import { switchHeight, switchWidth } from "../constants/dimentions";
-import { gray, green, black } from "../constants/colors";
 
 const Container = styled.div`
-    width: ${switchWidth}px;
-    height: ${switchHeight}px;
+    width: 39px;
+    height: 16px;
     border-radius: 1000px;
     display: flex;
     align-items: center;
-    background-color: ${gray};
+    background-color: #c4c4c4;
     & > div {
         border: 1px solid black;
-        width: ${switchHeight - 2}px;
-        height: ${switchHeight - 2}px;
+        width: 14px;
+        height: 14px;
         border-radius: 1000px;
         box-sizing: border-box;
         margin-left: 0;

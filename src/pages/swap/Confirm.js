@@ -5,18 +5,16 @@ import InfoIcon from "../../components/Icons/Info";
 import Text from "../../styled-components/Text";
 import styled from "styled-components";
 import HigtLight from "../../styled-components/HighLight";
-import { borderRadiusSm, marginMd, marginSm, paddingMd, paddingSm, marginLg } from "../../constants/dimentions";
 import Button from '../../styled-components/Button';
 import ReactModal from 'react-modal';
 import Left1Icon from "../../components/Icons/Left1";
 import RadioButton from '../../components/RadioButton';
-import AmountInput from "../../components/AmountInput";
 import XButton from '../../styled-components/XButton';
 
 const BillingHighLight = styled(HigtLight)`
-    border-radius: ${borderRadiusSm}px;
+    border-radius: 10px;
     width: 100%;
-    padding: ${paddingMd}px ${paddingSm}px;
+    padding: 11px 17px;
     box-sizing: border-box;
 `;
 
@@ -24,7 +22,6 @@ const BillingOneLine = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: ${marginSm}px 0;
 `;
 
 const BillingOneLineRight = styled.div`
@@ -39,7 +36,28 @@ const TextUnderline = styled(Text)`
 
 const Title = styled(Text)`
     font-weight: 700;
-    margin: ${marginSm}px 0;
+    margin: 12px 0;
+`;
+
+const Input = styled.input``;
+const AmountInput = styled.div`
+    width: 200px;
+    height: 59px;
+    text-align: center;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 1000px;
+    border: none;
+    outline: none;
+    & ${Input} {
+        border: none;
+        border-bottom: 1px solid black;
+        width: 89px;
+        height: 48px;
+        text-align: center;
+        &:active, &:focus {
+            outline: none;
+        }
+    }
 `;
 
 const Confirm = () => {
@@ -55,66 +73,100 @@ const Confirm = () => {
                 flexGrow: 1,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
                 alignItems: "center",
-                width: "100%",
+                width: "calc(100% + 20px)",
+                marginTop: "-5px",
             }}>
-                <Text>0,175 BNB</Text>
-                <SwapDownIcon  style={{
-                    margin: `${marginMd}px 0`
-                }}/>
-                <Text>BUSD</Text>
                 <Text style={{
-                    margin: `${marginLg}px 0`
+                    marginBottom: "9px"
+                }}>0,175 BNB</Text>
+                <SwapDownIcon width={12} height={15} style={{
+                    marginBottom: "12px"
+                }}/>
+                <Text style={{
+                    marginBottom: "12px"
+                }}>BUSD</Text>
+                <Text style={{
+                    fontSize: "24px",
+                    marginBottom: "49px",
                 }}>10</Text>
                 <div style={{
                     display: "flex",
-                    margin: `${marginSm}px 0`
+                    justifyContent: "center",
+                    marginBottom: "26px",
+                    alignItems: "center",
                 }}>
                     <Text style={{
-                        marginRight: `${marginSm}px`
+                        marginRight: `11px`
                     }}>1 BUSD = 0.0017000000 BNB</Text>
                     <RefreshIcon />
                 </div>
                 <BillingHighLight>
-                    <BillingOneLine>
+                    <BillingOneLine style={{
+                        marginBottom: "21px"
+                    }}>
                         <Text>Using the best quote</Text>
                         <TextUnderline onClick={() => {setOpenQuote(true)}}>Details</TextUnderline>
                     </BillingOneLine>
-                    <BillingOneLine>
+                    <BillingOneLine style={{
+                        marginBottom: "2px"
+                    }}>
                         <Text style={{
-                            marginRight: `${marginSm}px`
+                            marginRight: `4px`,
+                            fontSize: "10px"
                         }}>Estimated gas fee</Text>
-                        <InfoIcon style={{
+                        <InfoIcon width={"11px"} height={"11px"} style={{
                             cursor: "pointer"
                         }} onClick={() => {setOpenGasFee(true)}}/>
                         <Text style={{
                             flexGrow: 1,
                             textAlign: "right",
+                            fontSize: "10px"
                         }}>0.0008 BNB</Text>
                     </BillingOneLine>
-                    <BillingOneLineRight>
-                        <Text>0.39 €</Text>
+                    <BillingOneLineRight style={{
+                        marginBottom: "10px"
+                    }}>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>0.39 €</Text>
                     </BillingOneLineRight>
-                    <BillingOneLine>
-                        <Text>Max gas fee</Text>
-                        <Text>0.0008 BNB</Text>
+                    <BillingOneLine style={{
+                        marginBottom: "2px"
+                    }}>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>Max gas fee</Text>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>0.0008 BNB</Text>
                     </BillingOneLine>
-                    <BillingOneLineRight>
+                    <BillingOneLineRight style={{
+                        marginBottom: "10px",
+                        fontSize: "10px"
+                    }}>
                         <Text>0.70 €</Text>
                     </BillingOneLineRight>
-                    <BillingOneLine>
-                        <Text>This will ENABLE BUSD for swapping</Text>
-                        <TextUnderline onClick={() => setOpenEditLimit(true)}>Edit limit</TextUnderline>
+                    <BillingOneLine style={{
+                        marginBottom: "12px"
+                    }}>
+                        <Text style={{
+                            fontSize: "10px"
+                        }}>This will ENABLE BUSD for swapping</Text>
+                        <TextUnderline style={{
+                            fontSize: "10px"
+                        }} onClick={() => setOpenEditLimit(true)}>Edit limit</TextUnderline>
                     </BillingOneLine>
                     <hr style={{
                         width: "100%",
+                        marginBottom: "14px"
                     }}/>
                     <BillingOneLine>
                         <Text style={{
-                            marginRight: `${marginSm}px`
+                            marginRight: `7px`,
+                            fontSize: "10px"
                         }}>Quotes include a 0,875% MetaMask fee</Text>
-                        <InfoIcon style={{
+                        <InfoIcon width={"11px"} height={"11px"} style={{
                             cursor: "pointer"
                         }} onClick={() => setOpenMetamaskFee(true)}/>
                         <div style={{
@@ -126,9 +178,14 @@ const Confirm = () => {
             <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                flexGrow: 0
+                flexGrow: 0,
+                marginTop: "19px"
             }}>
-                <Button onClick={() => {}}>Confirm Swap</Button>
+                <Button style={{
+                    width: "123px",
+                    height: "45px",
+                    backgroundColor: "#15EA37"
+                }} onClick={() => {}}>Confirm Swap</Button>
             </div>
             <ReactModal 
                 isOpen={openQuote}
@@ -171,7 +228,7 @@ const Confirm = () => {
             </ReactModal>
             <ReactModal 
                 isOpen={openQuoteDetail}
-                contentLabel="Open Quote"
+                contentLabel="Quote Detail"
                 onRequestClose={() => setOpenQuoteDetail(false)}
                 style={{
                     overlay: {
@@ -196,16 +253,17 @@ const Confirm = () => {
                 }}>
                     <Left1Icon style={{cursor: "pointer"}} onClick={() => setOpenQuoteDetail(false)}/>
                     <Text style={{
-                        marginLeft: `${marginMd}px`,
+                        marginLeft: `16px`,
                     }}>Quote details</Text>
                 </div>
                 <Title>Rate</Title>
                 <div style={{
                     display: "flex",
-                    margin: `${marginSm}px 0`
+                    margin: `12px 0`,
+                    alignItems: "center"
                 }}>
                     <Text style={{
-                        marginRight: `${marginSm}px`
+                        marginRight: `12px`
                     }}>1 BUSD = 0.0017000000 BNB</Text>
                     <RefreshIcon />
                 </div>
@@ -245,36 +303,50 @@ const Confirm = () => {
                 }}>
                     <Left1Icon style={{cursor: "pointer"}} onClick={() => setOpenEditLimit(false)}/>
                     <Text style={{
-                        marginLeft: `${marginMd}px`,
+                        marginLeft: `16px`,
                     }}>Edit permission</Text>
                 </div>
                 <div style={{
                     display: "flex",
                     flexDirection: 'column',
-                    marginBottom: `${marginMd}px`,
+                    marginBottom: `16px`,
                 }}>
                     <RadioButton style={{
-                        marginTop: `${marginMd}px`
-                    }} text={"Spend limit permission"} active={activeRadio === "default"} onClick={() => setActiveRadio("default")}></RadioButton>
+                        marginTop: `16px`,
+                        marginBottom: "5px",
+                    }} text={<Text style={{
+                        fontWeight: "700"
+                    }}>Spend limit permission</Text>} active={activeRadio === "default"} onClick={() => setActiveRadio("default")}></RadioButton>
                     <div style={{
-                        paddingLeft: `${paddingMd}px`,
-                        marginLeft: `${marginSm}px`,
+                        paddingLeft: `16px`,
+                        marginLeft: `12px`,
+                        marginBottom: "12px"
                     }}>
-                        <Text>Allow SWAPS to withdraw and spend up to the following amount:</Text>
+                        <Text style={{
+                            marginBottom: "6px"
+                        }}>Allow SWAPS to withdraw and spend up to the following amount:</Text>
                         <Text style={{
                             wordBreak: "break-all"
                         }}>115876456541635468436241654654654684635132468463513645654654654.3643454 BUSD</Text>
                     </div>
                     <RadioButton style={{
-                        marginTop: `${marginMd}px`
-                    }} text={"Custom spend limit"} active={activeRadio === "custom"} onClick={() => setActiveRadio("custom")}></RadioButton>
+                        marginTop: `16px`,
+                        marginBottom: "5px",
+                    }} text={<Text style={{
+                        fontWeight: "700"
+                    }}>Custom spend limit</Text>} active={activeRadio === "custom"} onClick={() => setActiveRadio("custom")}></RadioButton>
                     <div style={{
-                        paddingLeft: `${paddingMd}px`,
-                        marginLeft: `${marginSm}px`,
+                        paddingLeft: `16px`,
+                        marginLeft: `12px`,
+                        marginBottom: "10px",
                     }}>
                         <Text>Enter a max spend limit</Text>
                     </div>
-                    <AmountInput />
+                    <AmountInput style={{
+                        marginBottom: "27px"
+                    }}>
+                        <Input/>
+                    </AmountInput>
                 </div>
                 <div style={{
                     display: 'flex',
@@ -282,7 +354,11 @@ const Confirm = () => {
                     width: "100%",
                     flexGrow: 0,
                 }}>
-                    <Button onClick={() => {setOpenEditLimit(false)}}>Set</Button>
+                    <Button style={{
+                        width: "123px",
+                        height: "45px",
+                        backgroundColor: "#15EA37"
+                    }} onClick={() => {setOpenEditLimit(false)}}>Set</Button>
                 </div>
             </ReactModal>
             <ReactModal 

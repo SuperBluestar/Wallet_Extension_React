@@ -1,6 +1,5 @@
 import Button from "../../styled-components/Button";
 import Text from "../../styled-components/Text";
-import { marginLg, marginMd, marginSm } from '../../constants/dimentions';
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
